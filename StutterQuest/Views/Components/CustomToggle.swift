@@ -8,11 +8,35 @@
 import SwiftUI
 
 struct CustomToggle: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  
+  @Binding var signingUp: Bool
+  var body: some View {
+     HStack(){
+      Button(action: {
+        withAnimation{
+          signingUp = false
+        }
+      }) {
+        Text("Sign in")
+          .foregroundColor(signingUp ? .gray : .white)
+          .frame(maxWidth: .infinity)
+          .padding(.vertical, 10)
+          .background(signingUp ? Color.clear : .gray)
+          .cornerRadius(15)
+      }
+      
+      Button(action: {
+        withAnimation{
+          signingUp = true
+        }
+      }) {
+        Text("Sign Up")
+          .foregroundColor(!signingUp ? .gray : .white)
+          .frame(maxWidth: .infinity)
+          .padding(.vertical, 10)
+          .background(!signingUp ? Color.clear : .gray)
+          .cornerRadius(15)
+      }
     }
-}
-
-#Preview {
-    CustomToggle()
+  }
 }

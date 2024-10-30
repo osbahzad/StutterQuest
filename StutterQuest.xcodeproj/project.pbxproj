@@ -14,6 +14,7 @@
 		0746DD4D2CD0365B00BB8F10 /* StutterQuestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD4C2CD0365B00BB8F10 /* StutterQuestTests.swift */; };
 		0746DD572CD0365B00BB8F10 /* StutterQuestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD562CD0365B00BB8F10 /* StutterQuestUITests.swift */; };
 		0746DD592CD0365B00BB8F10 /* StutterQuestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD582CD0365B00BB8F10 /* StutterQuestUITestsLaunchTests.swift */; };
+		198237CC2CD2E4D500B6876E /* CustomToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198237CB2CD2E4D500B6876E /* CustomToggle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		0746DD522CD0365B00BB8F10 /* StutterQuestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StutterQuestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0746DD562CD0365B00BB8F10 /* StutterQuestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StutterQuestUITests.swift; sourceTree = "<group>"; };
 		0746DD582CD0365B00BB8F10 /* StutterQuestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StutterQuestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		198237CB2CD2E4D500B6876E /* CustomToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +96,8 @@
 		0746DD3A2CD0365900BB8F10 /* StutterQuest */ = {
 			isa = PBXGroup;
 			children = (
+				198237C92CD2E4B800B6876E /* Views */,
 				0746DD3B2CD0365900BB8F10 /* StutterQuestApp.swift */,
-				0746DD3D2CD0365900BB8F10 /* ContentView.swift */,
 				0746DD3F2CD0365B00BB8F10 /* Assets.xcassets */,
 				0746DD412CD0365B00BB8F10 /* Preview Content */,
 			);
@@ -125,6 +127,23 @@
 				0746DD582CD0365B00BB8F10 /* StutterQuestUITestsLaunchTests.swift */,
 			);
 			path = StutterQuestUITests;
+			sourceTree = "<group>";
+		};
+		198237C92CD2E4B800B6876E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0746DD3D2CD0365900BB8F10 /* ContentView.swift */,
+				198237CA2CD2E4BD00B6876E /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		198237CA2CD2E4BD00B6876E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				198237CB2CD2E4D500B6876E /* CustomToggle.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				198237CC2CD2E4D500B6876E /* CustomToggle.swift in Sources */,
 				0746DD3E2CD0365900BB8F10 /* ContentView.swift in Sources */,
 				0746DD3C2CD0365900BB8F10 /* StutterQuestApp.swift in Sources */,
 			);
