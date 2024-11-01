@@ -14,6 +14,15 @@
 		0746DD4D2CD0365B00BB8F10 /* StutterQuestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD4C2CD0365B00BB8F10 /* StutterQuestTests.swift */; };
 		0746DD572CD0365B00BB8F10 /* StutterQuestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD562CD0365B00BB8F10 /* StutterQuestUITests.swift */; };
 		0746DD592CD0365B00BB8F10 /* StutterQuestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD582CD0365B00BB8F10 /* StutterQuestUITestsLaunchTests.swift */; };
+		7C8582B42CD2E5F40071F8EE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7C8582B32CD2E5F40071F8EE /* FirebaseFirestore */; };
+		7C8582B62CD2E5F40071F8EE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7C8582B52CD2E5F40071F8EE /* FirebaseStorage */; };
+		7C8582BA2CD2F89D0071F8EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C8582B92CD2F89C0071F8EE /* GoogleService-Info.plist */; };
+		7CE336FD2CD52D41008A3A8F /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE336FC2CD52D41008A3A8F /* Loading.swift */; };
+		7CE337032CD539CF008A3A8F /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE337022CD539CF008A3A8F /* Story.swift */; };
+		7CE337072CD540C1008A3A8F /* SelectStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE337062CD540C1008A3A8F /* SelectStoryView.swift */; };
+		7CE3370A2CD544E6008A3A8F /* StoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE337092CD544E6008A3A8F /* StoryRepository.swift */; };
+		7CE3370D2CD54583008A3A8F /* StorySelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3370C2CD54583008A3A8F /* StorySelectionViewModel.swift */; };
+		7CE3370F2CD54625008A3A8F /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3370E2CD54625008A3A8F /* StoryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +53,13 @@
 		0746DD522CD0365B00BB8F10 /* StutterQuestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StutterQuestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0746DD562CD0365B00BB8F10 /* StutterQuestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StutterQuestUITests.swift; sourceTree = "<group>"; };
 		0746DD582CD0365B00BB8F10 /* StutterQuestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StutterQuestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7C8582B92CD2F89C0071F8EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7CE336FC2CD52D41008A3A8F /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Loading.swift; path = StutterQuest/Loading.swift; sourceTree = SOURCE_ROOT; };
+		7CE337022CD539CF008A3A8F /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Story.swift; path = StutterQuest/Story.swift; sourceTree = SOURCE_ROOT; };
+		7CE337062CD540C1008A3A8F /* SelectStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStoryView.swift; sourceTree = "<group>"; };
+		7CE337092CD544E6008A3A8F /* StoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRepository.swift; sourceTree = "<group>"; };
+		7CE3370C2CD54583008A3A8F /* StorySelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySelectionViewModel.swift; sourceTree = "<group>"; };
+		7CE3370E2CD54625008A3A8F /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C8582B42CD2E5F40071F8EE /* FirebaseFirestore in Frameworks */,
+				7C8582B62CD2E5F40071F8EE /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,10 +112,12 @@
 		0746DD3A2CD0365900BB8F10 /* StutterQuest */ = {
 			isa = PBXGroup;
 			children = (
+				7CE3370B2CD54569008A3A8F /* ViewModels */,
+				7CE337082CD544CD008A3A8F /* DataRepositories */,
+				7C8582B92CD2F89C0071F8EE /* GoogleService-Info.plist */,
 				0746DD702CD2DE2600BB8F10 /* Models */,
 				0746DD6F2CD2DE1F00BB8F10 /* Views */,
 				0746DD3B2CD0365900BB8F10 /* StutterQuestApp.swift */,
-				0746DD3D2CD0365900BB8F10 /* ContentView.swift */,
 				0746DD3F2CD0365B00BB8F10 /* Assets.xcassets */,
 				0746DD412CD0365B00BB8F10 /* Preview Content */,
 			);
@@ -132,6 +152,9 @@
 		0746DD6F2CD2DE1F00BB8F10 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0746DD3D2CD0365900BB8F10 /* ContentView.swift */,
+				7CE336FC2CD52D41008A3A8F /* Loading.swift */,
+				7CE337062CD540C1008A3A8F /* SelectStoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -139,8 +162,26 @@
 		0746DD702CD2DE2600BB8F10 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7CE337022CD539CF008A3A8F /* Story.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7CE337082CD544CD008A3A8F /* DataRepositories */ = {
+			isa = PBXGroup;
+			children = (
+				7CE337092CD544E6008A3A8F /* StoryRepository.swift */,
+			);
+			path = DataRepositories;
+			sourceTree = "<group>";
+		};
+		7CE3370B2CD54569008A3A8F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7CE3370C2CD54583008A3A8F /* StorySelectionViewModel.swift */,
+				7CE3370E2CD54625008A3A8F /* StoryViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +200,10 @@
 			dependencies = (
 			);
 			name = StutterQuest;
+			packageProductDependencies = (
+				7C8582B32CD2E5F40071F8EE /* FirebaseFirestore */,
+				7C8582B52CD2E5F40071F8EE /* FirebaseStorage */,
+			);
 			productName = StutterQuest;
 			productReference = 0746DD382CD0365900BB8F10 /* StutterQuest.app */;
 			productType = "com.apple.product-type.application";
@@ -231,6 +276,9 @@
 				Base,
 			);
 			mainGroup = 0746DD2F2CD0365900BB8F10;
+			packageReferences = (
+				7C8582B22CD2E5F40071F8EE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 0746DD392CD0365900BB8F10 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -249,6 +297,7 @@
 			files = (
 				0746DD432CD0365B00BB8F10 /* Preview Assets.xcassets in Resources */,
 				0746DD402CD0365B00BB8F10 /* Assets.xcassets in Resources */,
+				7C8582BA2CD2F89D0071F8EE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,8 +322,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CE3370A2CD544E6008A3A8F /* StoryRepository.swift in Sources */,
 				0746DD3E2CD0365900BB8F10 /* ContentView.swift in Sources */,
+				7CE336FD2CD52D41008A3A8F /* Loading.swift in Sources */,
+				7CE3370D2CD54583008A3A8F /* StorySelectionViewModel.swift in Sources */,
+				7CE3370F2CD54625008A3A8F /* StoryViewModel.swift in Sources */,
 				0746DD3C2CD0365900BB8F10 /* StutterQuestApp.swift in Sources */,
+				7CE337032CD539CF008A3A8F /* Story.swift in Sources */,
+				7CE337072CD540C1008A3A8F /* SelectStoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,14 +498,14 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = CMU.StutterQuest;
+				PRODUCT_BUNDLE_IDENTIFIER = CMU.stutterQuest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -471,14 +526,14 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = CMU.StutterQuest;
+				PRODUCT_BUNDLE_IDENTIFIER = CMU.stutterQuest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -598,6 +653,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7C8582B22CD2E5F40071F8EE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7C8582B32CD2E5F40071F8EE /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C8582B22CD2E5F40071F8EE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		7C8582B52CD2E5F40071F8EE /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C8582B22CD2E5F40071F8EE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0746DD302CD0365900BB8F10 /* Project object */;
 }
