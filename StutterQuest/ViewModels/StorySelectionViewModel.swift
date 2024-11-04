@@ -14,15 +14,6 @@ class StorySelectionViewModel: ObservableObject {
   private var cancellables: Set<AnyCancellable> = []
 
   @Published var storyRepository = StoryRepository()
-//  @Published var storySelection: [Story] = []
-  
-//  init() {
-//    storyRepository.$stories.map { stories in
-//      stories.map(StoryViewModel.init)
-//    }
-//    .assign(to: \.storyViewModels, on: self)
-//    .store(in: &cancellables)
-//  }
   
   init() {
       storyRepository.$stories.map { stories in

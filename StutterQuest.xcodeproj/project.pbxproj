@@ -14,6 +14,7 @@
 		0746DD4D2CD0365B00BB8F10 /* StutterQuestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD4C2CD0365B00BB8F10 /* StutterQuestTests.swift */; };
 		0746DD572CD0365B00BB8F10 /* StutterQuestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD562CD0365B00BB8F10 /* StutterQuestUITests.swift */; };
 		0746DD592CD0365B00BB8F10 /* StutterQuestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD582CD0365B00BB8F10 /* StutterQuestUITestsLaunchTests.swift */; };
+		7C41032D2CD866130036127F /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C41032C2CD866130036127F /* StoryView.swift */; };
 		7C8582B42CD2E5F40071F8EE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7C8582B32CD2E5F40071F8EE /* FirebaseFirestore */; };
 		7C8582B62CD2E5F40071F8EE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7C8582B52CD2E5F40071F8EE /* FirebaseStorage */; };
 		7C8582BA2CD2F89D0071F8EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C8582B92CD2F89C0071F8EE /* GoogleService-Info.plist */; };
@@ -53,6 +54,7 @@
 		0746DD522CD0365B00BB8F10 /* StutterQuestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StutterQuestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0746DD562CD0365B00BB8F10 /* StutterQuestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StutterQuestUITests.swift; sourceTree = "<group>"; };
 		0746DD582CD0365B00BB8F10 /* StutterQuestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StutterQuestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7C41032C2CD866130036127F /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		7C8582B92CD2F89C0071F8EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7CE336FC2CD52D41008A3A8F /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Loading.swift; path = StutterQuest/Loading.swift; sourceTree = SOURCE_ROOT; };
 		7CE337022CD539CF008A3A8F /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Story.swift; path = StutterQuest/Story.swift; sourceTree = SOURCE_ROOT; };
@@ -155,6 +157,7 @@
 				0746DD3D2CD0365900BB8F10 /* ContentView.swift */,
 				7CE336FC2CD52D41008A3A8F /* Loading.swift */,
 				7CE337062CD540C1008A3A8F /* SelectStoryView.swift */,
+				7C41032C2CD866130036127F /* StoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C41032D2CD866130036127F /* StoryView.swift in Sources */,
 				7CE3370A2CD544E6008A3A8F /* StoryRepository.swift in Sources */,
 				0746DD3E2CD0365900BB8F10 /* ContentView.swift in Sources */,
 				7CE336FD2CD52D41008A3A8F /* Loading.swift in Sources */,
