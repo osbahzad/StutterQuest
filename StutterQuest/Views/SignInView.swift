@@ -1,0 +1,31 @@
+//
+//  SignInView.swift
+//  StutterQuest
+//
+//  Created by Veronica Benedict on 10/30/24.
+//
+
+import SwiftUI
+
+struct SignInView: View {
+  @State var email: String
+  @State var password: String
+  @State var username: String?
+//  @State private var input: String
+  
+  var body: some View {
+    VStack {
+      Text("Log In")
+        .font(.largeTitle)
+      Text("Good to see you again!")
+      
+      TextField("username/email", text:$email)
+        .textFieldStyle(RoundedBorderTextFieldStyle())
+        .padding(.horizontal, 20)
+      TextField("Password", text:$password)
+        .textFieldStyle(RoundedBorderTextFieldStyle())
+        .padding(.horizontal, 20)
+    }
+  }
+  
+}
