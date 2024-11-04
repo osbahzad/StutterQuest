@@ -18,9 +18,10 @@ struct ContentView: View {
   var body: some View {
     NavigationView {
       ZStack{
-        //        Image("login_backgound")
-        //          .resizable()
-        //          .scaledToFill()
+                Image("login_backgound")
+                  .resizable()
+                  .scaledToFill()
+                  .edgesIgnoringSafeArea(.all)
         VStack {
           Text("StutterQuest")
             .bold()
@@ -29,7 +30,7 @@ struct ContentView: View {
           if(signingUp) {
             SignUpView(email: $email, password: $password)
           } else {
-            SignInView(email: email, password: password, username: username)
+            SignInView(email: $email, password: $password)
           }
           Button(action: {
             Task {
@@ -39,7 +40,9 @@ struct ContentView: View {
                 await authViewModel.signIn(email:email, password: password)
               }
               try? await Task.sleep(nanoseconds: 1_000_000_000)
-              signed_in = true
+              if authViewModel.user != nil { 
+                  signed_in = true
+              }
             }
           }) {
             Text("Continue")

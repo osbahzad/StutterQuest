@@ -23,6 +23,10 @@ struct CustomToggle: View {
           .padding(.vertical, 10)
           .background(signingUp ? Color.clear : .gray)
           .cornerRadius(15)
+          .overlay(
+                                  RoundedRectangle(cornerRadius: 15)
+                                      .stroke(signingUp ? Color.gray : Color.clear, lineWidth: 2)
+                              )
       }
       
       Button(action: {
@@ -36,6 +40,10 @@ struct CustomToggle: View {
           .padding(.vertical, 10)
           .background(!signingUp ? Color.clear : .gray)
           .cornerRadius(15)
+          .overlay(
+                                  RoundedRectangle(cornerRadius: 15)
+                                      .stroke(!signingUp ? Color.gray : Color.clear, lineWidth: 2)
+                              )
       }
     }
   }

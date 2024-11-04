@@ -2,7 +2,7 @@ import Foundation
 import Firebase
 
 class User: Identifiable, Codable, ObservableObject {
-    var user_id: UUID
+    var user_id: String
     var nickname: String
     var email: String
     var password: String
@@ -14,7 +14,7 @@ class User: Identifiable, Codable, ObservableObject {
     var rank: Int
     
     enum CodingKeys: String, CodingKey {
-        case user_id = "user_id"
+        case user_id 
         case nickname
         case email
         case password
@@ -26,7 +26,7 @@ class User: Identifiable, Codable, ObservableObject {
         case rank
     }
     
-    init(user_id: UUID = UUID(), nickname: String, email: String, password: String, num_stories_read: Int, num_streak_days: Int, num_hours_played: Int, rank: Int) {
+    init(user_id: String, nickname: String, email: String, password: String, num_stories_read: Int, num_streak_days: Int, num_hours_played: Int, rank: Int) {
         self.user_id = user_id
         self.nickname = nickname
         self.email = email

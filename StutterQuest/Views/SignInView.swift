@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct SignInView: View {
-  @State var email: String
-  @State var password: String
-  @State var username: String?
+  @Binding var email: String
+  @Binding var password: String
+//  @State var username: String?
 //  @State private var input: String
   
   var body: some View {

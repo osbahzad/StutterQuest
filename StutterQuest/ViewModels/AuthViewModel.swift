@@ -20,10 +20,11 @@ class AuthViewModel: ObservableObject {
   
   func signUp(email: String, password: String) async {
     do {
-      print("attempting to sign up")
+      print("attempting to sign up with email \(email) and password: \(password)")
       let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
       let uid = authResult.user.uid
-      let newUser = User(user_id: UUID(uuidString: uid)!,
+      print("uid: ", uid)
+      let newUser = User(user_id: uid,
                         nickname: "",
                         email: email,
                         password: password,
@@ -31,8 +32,8 @@ class AuthViewModel: ObservableObject {
                         num_streak_days: 0,
                         num_hours_played: 0,
                         rank: 0)
-      try await db.collection("users").document(uid).setData([
-        "user_id": newUser.user_id.uuidString,
+      try await db.collection("user").document(uid).setData([
+        "user_id": newUser.user_id,
         "nickname": newUser.nickname,
         "email": newUser.email,
         "num_stories_read": newUser.num_stories_read,
@@ -46,25 +47,33 @@ class AuthViewModel: ObservableObject {
       DispatchQueue.main.async {
         self.user = newUser
       }
-      print("user has signed in with email: \(email)")
-    } catch {
-      DispatchQueue.main.async{
-        self.errorMessage = error.localizedDescription
-        print("Error occurred: \(self.errorMessage ?? "Unknown error")")
-
+      print("user has signed up with email: \(email)")
+    } catch let error as NSError {
+      DispatchQueue.main.async {
+          if let errorCode = AuthErrorCode(rawValue: error.code) {
+              switch errorCode {
+              case .emailAlreadyInUse:
+                  self.errorMessage = "The email address is already in use by another account."
+              default:
+                  self.errorMessage = error.localizedDescription
+              }
+          } else {
+              self.errorMessage = error.localizedDescription
+          }
+          print("Error occurred: \(self.errorMessage ?? "Unknown error")")
       }
-    }
+  }
   }
   
   func signIn(email:String, password: String) async {
     do {
-      print("attempting to sign in")
+      print("attempting to sign in with email: \(email) and password: \(password)")
       let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
       let user_id = authResult.user.uid
-      let document = try await db.collection("users").document(user_id).getDocument()
+      let document = try await db.collection("user").document(user_id).getDocument()
       if let data = document.data() {
         let fetchedUser = User(
-          user_id: UUID(uuidString: data["user_id"] as? String ?? "") ?? UUID(),
+          user_id: data["user_id"] as? String ?? "",
           nickname: data["nickname"] as? String ?? "",
           email: data["email"] as? String ?? "",
           password: password,
