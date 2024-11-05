@@ -14,6 +14,27 @@
 		0746DD4D2CD0365B00BB8F10 /* StutterQuestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD4C2CD0365B00BB8F10 /* StutterQuestTests.swift */; };
 		0746DD572CD0365B00BB8F10 /* StutterQuestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD562CD0365B00BB8F10 /* StutterQuestUITests.swift */; };
 		0746DD592CD0365B00BB8F10 /* StutterQuestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD582CD0365B00BB8F10 /* StutterQuestUITestsLaunchTests.swift */; };
+		0746DD722CD2E5C800BB8F10 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD712CD2E5C800BB8F10 /* StoryView.swift */; };
+		0746DD742CD2E5F000BB8F10 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD732CD2E5F000BB8F10 /* SpeechRecognizer.swift */; };
+		0746DD762CD2E61300BB8F10 /* TextComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD752CD2E61300BB8F10 /* TextComparison.swift */; };
+		0746DD7A2CD2EFA100BB8F10 /* PronunciationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD792CD2EFA100BB8F10 /* PronunciationService.swift */; };
+		0746DD7C2CD2F2FF00BB8F10 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD7B2CD2F2FF00BB8F10 /* WebView.swift */; };
+		0746DD7E2CD439D300BB8F10 /* StorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD7D2CD439D300BB8F10 /* StorySelectionView.swift */; };
+		0746DD802CD5271800BB8F10 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD7F2CD5271800BB8F10 /* NavigationBarView.swift */; };
+		0746DD822CD5277700BB8F10 /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD812CD5277700BB8F10 /* StoryCardView.swift */; };
+		0746DD852CD94AF700BB8F10 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0746DD842CD94AF700BB8F10 /* FirebaseAnalytics */; };
+		0746DD872CD94AF700BB8F10 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0746DD862CD94AF700BB8F10 /* FirebaseAuth */; };
+		0746DD892CD94AF700BB8F10 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0746DD882CD94AF700BB8F10 /* FirebaseCore */; };
+		0746DD8B2CD94AF700BB8F10 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0746DD8A2CD94AF700BB8F10 /* FirebaseDatabase */; };
+		0746DD8D2CD94AF700BB8F10 /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 0746DD8C2CD94AF700BB8F10 /* FirebaseDynamicLinks */; };
+		0746DD8F2CD94AF700BB8F10 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0746DD8E2CD94AF700BB8F10 /* FirebaseFirestore */; };
+		0746DD912CD94AF700BB8F10 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0746DD902CD94AF700BB8F10 /* FirebaseFirestoreCombine-Community */; };
+		0746DD932CD94AF700BB8F10 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0746DD922CD94AF700BB8F10 /* FirebaseStorage */; };
+		0746DD952CD94BF600BB8F10 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD942CD94BF600BB8F10 /* Story.swift */; };
+		0746DD982CD94C9E00BB8F10 /* StoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD972CD94C9E00BB8F10 /* StoryRepository.swift */; };
+		0746DD9C2CD94D6200BB8F10 /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD9B2CD94D6200BB8F10 /* StoryViewModel.swift */; };
+		0746DD9E2CD958A300BB8F10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0746DD9D2CD958A300BB8F10 /* GoogleService-Info.plist */; };
+		0746DDA02CD9612500BB8F10 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD9F2CD9612500BB8F10 /* TestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +65,20 @@
 		0746DD522CD0365B00BB8F10 /* StutterQuestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StutterQuestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0746DD562CD0365B00BB8F10 /* StutterQuestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StutterQuestUITests.swift; sourceTree = "<group>"; };
 		0746DD582CD0365B00BB8F10 /* StutterQuestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StutterQuestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0746DD712CD2E5C800BB8F10 /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+		0746DD732CD2E5F000BB8F10 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		0746DD752CD2E61300BB8F10 /* TextComparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextComparison.swift; sourceTree = "<group>"; };
+		0746DD772CD2EB5500BB8F10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0746DD792CD2EFA100BB8F10 /* PronunciationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PronunciationService.swift; sourceTree = "<group>"; };
+		0746DD7B2CD2F2FF00BB8F10 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		0746DD7D2CD439D300BB8F10 /* StorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySelectionView.swift; sourceTree = "<group>"; };
+		0746DD7F2CD5271800BB8F10 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		0746DD812CD5277700BB8F10 /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
+		0746DD942CD94BF600BB8F10 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		0746DD972CD94C9E00BB8F10 /* StoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRepository.swift; sourceTree = "<group>"; };
+		0746DD9B2CD94D6200BB8F10 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
+		0746DD9D2CD958A300BB8F10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0746DD9F2CD9612500BB8F10 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +86,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0746DD852CD94AF700BB8F10 /* FirebaseAnalytics in Frameworks */,
+				0746DD892CD94AF700BB8F10 /* FirebaseCore in Frameworks */,
+				0746DD8B2CD94AF700BB8F10 /* FirebaseDatabase in Frameworks */,
+				0746DD872CD94AF700BB8F10 /* FirebaseAuth in Frameworks */,
+				0746DD8D2CD94AF700BB8F10 /* FirebaseDynamicLinks in Frameworks */,
+				0746DD932CD94AF700BB8F10 /* FirebaseStorage in Frameworks */,
+				0746DD8F2CD94AF700BB8F10 /* FirebaseFirestore in Frameworks */,
+				0746DD912CD94AF700BB8F10 /* FirebaseFirestoreCombine-Community in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +137,11 @@
 		0746DD3A2CD0365900BB8F10 /* StutterQuest */ = {
 			isa = PBXGroup;
 			children = (
+				0746DD9D2CD958A300BB8F10 /* GoogleService-Info.plist */,
+				0746DD9A2CD94D4E00BB8F10 /* ViewModels */,
+				0746DD962CD94C8100BB8F10 /* DataRepository */,
+				0746DD782CD2EF7D00BB8F10 /* Services */,
+				0746DD772CD2EB5500BB8F10 /* Info.plist */,
 				0746DD702CD2DE2600BB8F10 /* Models */,
 				0746DD6F2CD2DE1F00BB8F10 /* Views */,
 				0746DD3B2CD0365900BB8F10 /* StutterQuestApp.swift */,
@@ -132,6 +180,12 @@
 		0746DD6F2CD2DE1F00BB8F10 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0746DD712CD2E5C800BB8F10 /* StoryView.swift */,
+				0746DD7B2CD2F2FF00BB8F10 /* WebView.swift */,
+				0746DD7D2CD439D300BB8F10 /* StorySelectionView.swift */,
+				0746DD7F2CD5271800BB8F10 /* NavigationBarView.swift */,
+				0746DD812CD5277700BB8F10 /* StoryCardView.swift */,
+				0746DD9F2CD9612500BB8F10 /* TestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -139,8 +193,35 @@
 		0746DD702CD2DE2600BB8F10 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0746DD752CD2E61300BB8F10 /* TextComparison.swift */,
+				0746DD942CD94BF600BB8F10 /* Story.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0746DD782CD2EF7D00BB8F10 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0746DD732CD2E5F000BB8F10 /* SpeechRecognizer.swift */,
+				0746DD792CD2EFA100BB8F10 /* PronunciationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0746DD962CD94C8100BB8F10 /* DataRepository */ = {
+			isa = PBXGroup;
+			children = (
+				0746DD972CD94C9E00BB8F10 /* StoryRepository.swift */,
+			);
+			path = DataRepository;
+			sourceTree = "<group>";
+		};
+		0746DD9A2CD94D4E00BB8F10 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0746DD9B2CD94D6200BB8F10 /* StoryViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +240,16 @@
 			dependencies = (
 			);
 			name = StutterQuest;
+			packageProductDependencies = (
+				0746DD842CD94AF700BB8F10 /* FirebaseAnalytics */,
+				0746DD862CD94AF700BB8F10 /* FirebaseAuth */,
+				0746DD882CD94AF700BB8F10 /* FirebaseCore */,
+				0746DD8A2CD94AF700BB8F10 /* FirebaseDatabase */,
+				0746DD8C2CD94AF700BB8F10 /* FirebaseDynamicLinks */,
+				0746DD8E2CD94AF700BB8F10 /* FirebaseFirestore */,
+				0746DD902CD94AF700BB8F10 /* FirebaseFirestoreCombine-Community */,
+				0746DD922CD94AF700BB8F10 /* FirebaseStorage */,
+			);
 			productName = StutterQuest;
 			productReference = 0746DD382CD0365900BB8F10 /* StutterQuest.app */;
 			productType = "com.apple.product-type.application";
@@ -231,6 +322,9 @@
 				Base,
 			);
 			mainGroup = 0746DD2F2CD0365900BB8F10;
+			packageReferences = (
+				0746DD832CD94AF700BB8F10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 0746DD392CD0365900BB8F10 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -249,6 +343,7 @@
 			files = (
 				0746DD432CD0365B00BB8F10 /* Preview Assets.xcassets in Resources */,
 				0746DD402CD0365B00BB8F10 /* Assets.xcassets in Resources */,
+				0746DD9E2CD958A300BB8F10 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,8 +368,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0746DDA02CD9612500BB8F10 /* TestView.swift in Sources */,
+				0746DD722CD2E5C800BB8F10 /* StoryView.swift in Sources */,
+				0746DD742CD2E5F000BB8F10 /* SpeechRecognizer.swift in Sources */,
+				0746DD762CD2E61300BB8F10 /* TextComparison.swift in Sources */,
+				0746DD7A2CD2EFA100BB8F10 /* PronunciationService.swift in Sources */,
 				0746DD3E2CD0365900BB8F10 /* ContentView.swift in Sources */,
+				0746DD982CD94C9E00BB8F10 /* StoryRepository.swift in Sources */,
+				0746DD7E2CD439D300BB8F10 /* StorySelectionView.swift in Sources */,
+				0746DD822CD5277700BB8F10 /* StoryCardView.swift in Sources */,
 				0746DD3C2CD0365900BB8F10 /* StutterQuestApp.swift in Sources */,
+				0746DD7C2CD2F2FF00BB8F10 /* WebView.swift in Sources */,
+				0746DD9C2CD94D6200BB8F10 /* StoryViewModel.swift in Sources */,
+				0746DD802CD5271800BB8F10 /* NavigationBarView.swift in Sources */,
+				0746DD952CD94BF600BB8F10 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,17 +547,19 @@
 				DEVELOPMENT_ASSET_PATHS = "\"StutterQuest/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StutterQuest/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe. Audio recordings are discarded after transcription.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can view a text transcription of your meeting in the app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = CMU.StutterQuest;
+				PRODUCT_BUNDLE_IDENTIFIER = CMU.stutterQuest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -468,17 +577,19 @@
 				DEVELOPMENT_ASSET_PATHS = "\"StutterQuest/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StutterQuest/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe. Audio recordings are discarded after transcription.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can view a text transcription of your meeting in the app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = CMU.StutterQuest;
+				PRODUCT_BUNDLE_IDENTIFIER = CMU.stutterQuest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -598,6 +709,60 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0746DD832CD94AF700BB8F10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0746DD842CD94AF700BB8F10 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0746DD832CD94AF700BB8F10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		0746DD862CD94AF700BB8F10 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0746DD832CD94AF700BB8F10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		0746DD882CD94AF700BB8F10 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0746DD832CD94AF700BB8F10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		0746DD8A2CD94AF700BB8F10 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0746DD832CD94AF700BB8F10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		0746DD8C2CD94AF700BB8F10 /* FirebaseDynamicLinks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0746DD832CD94AF700BB8F10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDynamicLinks;
+		};
+		0746DD8E2CD94AF700BB8F10 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0746DD832CD94AF700BB8F10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		0746DD902CD94AF700BB8F10 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0746DD832CD94AF700BB8F10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		0746DD922CD94AF700BB8F10 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0746DD832CD94AF700BB8F10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0746DD302CD0365900BB8F10 /* Project object */;
 }
