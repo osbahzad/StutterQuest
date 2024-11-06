@@ -53,7 +53,7 @@ class AuthViewModel: ObservableObject {
         if let errorCode = AuthErrorCode(rawValue: error.code) {
               switch errorCode {
               case .emailAlreadyInUse:
-                  self.errorMessage = "The email address is already in use by another account."
+                  self.errorMessage = "The email is already in use."
               default:
                   self.errorMessage = error.localizedDescription
               }

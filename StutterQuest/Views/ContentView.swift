@@ -40,13 +40,16 @@ struct ContentView: View {
             SignInView(email: $email, password: $password)
           }
           Button(action: {
+            showAlert = false
+            alertMessage = ""
             Task {
+              print("showAlert is \(showAlert) and alertMessage is \(alertMessage)")
               if signingUp {
                 await authViewModel.signUp(email: email, password: password)
               } else {
                 await authViewModel.signIn(email:email, password: password)
               }
-              try? await Task.sleep(nanoseconds: 1_000_000_000)
+//              try? await Task.sleep(nanoseconds: 1_000_000_000)
               if authViewModel.user != nil { 
                   signed_in = true
               }
@@ -65,6 +68,34 @@ struct ContentView: View {
               .cornerRadius(20)
           }
           .frame(width: 400, height: 50)
+          
+          if showAlert {
+            GeometryReader { geometry in
+              VStack {
+                Spacer()
+                RoundedRectangle(cornerRadius: 20)
+                  .foregroundColor(.white)
+                  .frame(width: 300, height: 150)
+                  .overlay(
+                    VStack(spacing: 20) {
+                      Text(alertMessage)
+                        .foregroundColor(.black)
+                      Button("Dismiss") {
+                        showAlert = false
+                      }
+                      .buttonStyle(.borderedProminent)
+                      .padding()
+                    }
+                    .padding()
+                  )
+                  .padding(.horizontal, 20)
+                  .offset(y: -150 )
+              }
+              .frame(width: geometry.size.width, height: geometry.size.height)
+              .transition(.opacity)
+            }
+          }
+
         }
         
         .background(
@@ -82,11 +113,7 @@ struct ContentView: View {
         )
         
         }
-        .alert(isPresented: $showAlert) {
-            Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
-        }
       }
-      
     }
 }
 
