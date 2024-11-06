@@ -30,6 +30,7 @@
 		198237D02CD2E8A700B6876E /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198237CF2CD2E8A700B6876E /* SignUpView.swift */; };
 		198237D72CD7E0BF00B6876E /* login_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 198237D62CD7E0BF00B6876E /* login_background.png */; };
 		198237E02CD84C4600B6876E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198237DF2CD84C4600B6876E /* User.swift */; };
+		19B2811E2CDBDC8D00999DE0 /* SelectNicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B2811D2CDBDC8D00999DE0 /* SelectNicknameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		198237CF2CD2E8A700B6876E /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		198237D62CD7E0BF00B6876E /* login_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login_background.png; path = ../../../../stutterquest/stutterquest/images/login_background.png; sourceTree = "<group>"; };
 		198237DF2CD84C4600B6876E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		19B2811D2CDBDC8D00999DE0 /* SelectNicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectNicknameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				0746DD3D2CD0365900BB8F10 /* ContentView.swift */,
 				198237CA2CD2E4BD00B6876E /* Components */,
 				19368E1B2CD85D04006E237D /* SelectStoryView.swift */,
+				19B2811D2CDBDC8D00999DE0 /* SelectNicknameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				198237CC2CD2E4D500B6876E /* CustomToggle.swift in Sources */,
 				198237D02CD2E8A700B6876E /* SignUpView.swift in Sources */,
 				198237E02CD84C4600B6876E /* User.swift in Sources */,
+				19B2811E2CDBDC8D00999DE0 /* SelectNicknameView.swift in Sources */,
 				19368E162CD850B7006E237D /* AuthViewModel.swift in Sources */,
 				19368E1C2CD85D04006E237D /* SelectStoryView.swift in Sources */,
 				0746DD3E2CD0365900BB8F10 /* ContentView.swift in Sources */,

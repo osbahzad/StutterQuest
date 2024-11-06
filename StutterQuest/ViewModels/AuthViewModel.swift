@@ -100,4 +100,18 @@ class AuthViewModel: ObservableObject {
       }
     }
   }
+  
+  func save_nickname(userID: String, nickname: String) async {
+    do {
+      try await db.collection("user").document(userID).updateData(["nickname": nickname])
+      
+      print("user's nickname has been updated to: \(nickname)")
+    } catch let error {
+      DispatchQueue.main.async {
+        self.errorMessage = error.localizedDescription
+      }
+      print("error: \(self.errorMessage)")
+    }
+  }
 }
+

@@ -12,11 +12,16 @@ struct ContentView: View {
   @State private var signingUp = true
   @State private var email = ""
   @State private var password = ""
-  @State private var username: String? = nil
+  @State private var nickname = ""
   @State private var signed_in = false
   @State private var showAlert = false
   @State private var alertMessage = ""
+  @State private var username_saved = false
   
+  // compute combined boolean for new user
+  private var needNickname: Bool {
+    return signingUp && signed_in
+  }
   var body: some View {
     NavigationView {
       ZStack{
@@ -61,10 +66,21 @@ struct ContentView: View {
           }
           .frame(width: 400, height: 50)
         }
+        
         .background(
-          NavigationLink(destination: SelectStoryView(), isActive: $signed_in) {
-              EmptyView()
-          })
+            Group {
+                if signingUp {
+                  NavigationLink(destination: SelectNicknameView(nickname: $nickname, username_saved: username_saved, authViewModel: authViewModel), isActive: .constant(needNickname)) {
+                        EmptyView()
+                    }
+                } else {
+                    NavigationLink(destination: SelectStoryView(), isActive: $signed_in) {
+                        EmptyView()
+                    }
+                }
+            }
+        )
+        
         }
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
@@ -72,7 +88,7 @@ struct ContentView: View {
       }
       
     }
-  }
+}
 
 
 #Preview {
