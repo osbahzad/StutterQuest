@@ -19,11 +19,11 @@ struct SignInView: View {
         .font(.largeTitle)
       Text("Good to see you again!")
       
-      TextField("username/email", text:$email)
+      TextField("Enter your email", text:$email)
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .padding(.horizontal, 20)
         .autocapitalization(.none)
-      SecureField("Password", text:$password)
+      SecureField("Enter your password", text:$password)
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .padding(.horizontal, 20)
         .autocapitalization(.none)

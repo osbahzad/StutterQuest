@@ -45,6 +45,10 @@ struct ContentView: View {
               if authViewModel.user != nil { 
                   signed_in = true
               }
+              if let errorMessage = authViewModel.errorMessage {
+                alertMessage = errorMessage
+                showAlert = true
+              }
             }
           }) {
             Text("Continue")
