@@ -22,9 +22,11 @@ struct SignInView: View {
       TextField("username/email", text:$email)
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .padding(.horizontal, 20)
-      TextField("Password", text:$password)
+        .autocapitalization(.none)
+      SecureField("Password", text:$password)
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .padding(.horizontal, 20)
+        .autocapitalization(.none)
     }
   }
   

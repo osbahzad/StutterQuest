@@ -14,14 +14,16 @@ struct ContentView: View {
   @State private var password = ""
   @State private var username: String? = nil
   @State private var signed_in = false
+  @State private var showAlert = false
+  @State private var alertMessage = ""
   
   var body: some View {
     NavigationView {
       ZStack{
-                Image("login_backgound")
-                  .resizable()
-                  .scaledToFill()
-                  .edgesIgnoringSafeArea(.all)
+        Image("login_backgound")
+          .resizable()
+          .scaledToFill()
+          .edgesIgnoringSafeArea(.all)
         VStack {
           Text("StutterQuest")
             .bold()
@@ -54,16 +56,14 @@ struct ContentView: View {
               .cornerRadius(20)
           }
           .frame(width: 400, height: 50)
-          
         }
         .background(
           NavigationLink(destination: SelectStoryView(), isActive: $signed_in) {
               EmptyView()
-          }
-        )
-      
-          
-          
+          })
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
         }
       }
       

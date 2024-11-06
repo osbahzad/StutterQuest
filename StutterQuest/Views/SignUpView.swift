@@ -21,10 +21,12 @@ struct SignUpView: View {
       TextField("Enter Email Address", text:$email)
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .padding(.horizontal, 20)
+        .autocapitalization(.none)
 
-      TextField("Enter password", text:$password)
+      SecureField("Enter password", text:$password)
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .padding(.horizontal, 20)
+        .autocapitalization(.none)
 //      }
     }
   }

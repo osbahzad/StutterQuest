@@ -50,7 +50,7 @@ class AuthViewModel: ObservableObject {
       print("user has signed up with email: \(email)")
     } catch let error as NSError {
       DispatchQueue.main.async {
-          if let errorCode = AuthErrorCode(rawValue: error.code) {
+        if let errorCode = AuthErrorCode(rawValue: error.code) {
               switch errorCode {
               case .emailAlreadyInUse:
                   self.errorMessage = "The email address is already in use by another account."
@@ -62,7 +62,7 @@ class AuthViewModel: ObservableObject {
           }
           print("Error occurred: \(self.errorMessage ?? "Unknown error")")
       }
-  }
+    }
   }
   
   func signIn(email:String, password: String) async {
@@ -87,11 +87,16 @@ class AuthViewModel: ObservableObject {
         }
       }
       print("user has signed in with email: \(email)")
-    } catch {
+    } catch let error as NSError {
       DispatchQueue.main.async {
-        self.errorMessage = error.localizedDescription
+        print(AuthErrorCode(rawValue: error.code)!)
+        switch error.localizedDescription {
+        case "The supplied auth credential is malformed or has expired.":
+            self.errorMessage = "Invalid email/password"
+        default:
+            self.errorMessage = "An unknown error occurred."
+        }
         print("Error occurred: \(self.errorMessage ?? "Unknown error")")
-      
       }
     }
   }
