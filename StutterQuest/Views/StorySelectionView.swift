@@ -38,7 +38,7 @@ struct StorySelectionView: View {
                         HStack(spacing: 20) {
                             ForEach(storyRepository.stories) { story in
                                 NavigationLink(
-                                    destination: StoryView(sentences: story.sentences)
+                                  destination: StoryView(story: story)
 //                                    destination: TestView()
                                 ) {
                                     StoryCardView(story: story)
