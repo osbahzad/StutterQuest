@@ -18,59 +18,28 @@ struct ColorizedWord: Identifiable, Hashable {
 
 struct TextComparison {
     static func colorizeText(spokenText: String, targetText: String) -> [ColorizedWord] {
-        let spokenWords = spokenText.split(separator: " ")
+        let spokenWordsSet = Set(spokenText.lowercased().split(separator: " ").map { $0.trimmingCharacters(in: .punctuationCharacters) })
         let targetWords = targetText.split(separator: " ")
 
         var result: [ColorizedWord] = []
 
-        for (index, word) in targetWords.enumerated() {
-            // Strip punctuation for comparison purposes
+        for word in targetWords {
             let strippedWord = word.filter { $0.isLetter || $0.isNumber }
+            
+            // Determine the color based on whether the word has been spoken
             let color: Color = {
-                if index < spokenWords.count {
-                    return spokenWords[index].lowercased() == strippedWord.lowercased() ? .green : .red
+                if spokenWordsSet.isEmpty {
+                    return .black // Default color if speech hasn't started
+                } else if spokenWordsSet.contains(strippedWord.lowercased()) {
+                    return .green // Word has been spoken
                 } else {
-                    return .black
+                    return .red // Word has not been spoken
                 }
             }()
             
-            result.append(ColorizedWord(text: String(word), strippedText: String(strippedWord), color: color))
+            result.append(ColorizedWord(text: String(word), strippedText: strippedWord, color: color))
         }
 
         return result
     }
 }
-
-
-
-
-//import Foundation
-//import SwiftUI
-//
-//struct ColorizedWord: Identifiable, Hashable {
-//    let id = UUID()
-//    let text: String
-//    let color: Color
-//}
-//
-//
-//struct TextComparison {
-//    static func colorizeText(spokenText: String, targetText: String) -> [ColorizedWord] {
-//        let spokenWords = spokenText.split(separator: " ")
-//        let targetWords = targetText.split(separator: " ")
-//
-//        var result: [ColorizedWord] = []
-//        for (index, word) in targetWords.enumerated() {
-//            let color: Color = {
-//                if index < spokenWords.count {
-//                    return spokenWords[index].lowercased() == word.lowercased() ? .green : .red
-//                } else {
-//                    return .black
-//                }
-//            }()
-//            result.append(ColorizedWord(text: String(word), color: color))
-//        }
-//        return result
-//    }
-//}
-

@@ -1,3 +1,10 @@
+//
+//  StoryView.swift
+//  StutterQuest
+//
+//  Created by Omar Bahzad on 10/30/24.
+// Help with AI
+
 import SwiftUI
 
 struct StoryView: View {
@@ -8,7 +15,8 @@ struct StoryView: View {
     @State private var selectedWord: String? = nil
     @State private var currentPage = 0
     @State private var currentSet = 0
-    
+    @State private var spokenText: String = "" // Track spoken text progress
+
     private let pronunciationService = PronunciationService()
     let story: Story
 
@@ -38,11 +46,11 @@ struct StoryView: View {
                 .background(Color.white)
                 .cornerRadius(10)
                 .padding([.horizontal, .bottom])
-                .frame(height: UIScreen.main.bounds.height / 3) // Set height to one-third of the screen height
+                .frame(height: UIScreen.main.bounds.height / 3)
 
                 // MARK: - Preview Panels (at the bottom)
                 previewPanels
-                    .frame(height: UIScreen.main.bounds.height * 0.25) // Set preview panels to the bottom 25% of the screen
+                    .frame(height: UIScreen.main.bounds.height * 0.25)
             }
 
             // MARK: - Navigation Buttons (Left and Right Arrows)
@@ -51,7 +59,9 @@ struct StoryView: View {
         .padding()
         
         // Show sheet with WebView for pronunciation audio
-        .sheet(isPresented: $showSheet) {
+        .sheet(isPresented: $showSheet, onDismiss: {
+            spokenText = speechRecognizer.transcript // Update spoken text on sheet dismissal
+        }) {
             pronunciationSheet
         }
         .navigationTitle(story.storyName)
@@ -61,7 +71,7 @@ struct StoryView: View {
     // MARK: - Sentence View (with color-coded words)
     private func sentenceView(for currentSentence: String) -> some View {
         HStack {
-            ForEach(TextComparison.colorizeText(spokenText: speechRecognizer.transcript, targetText: currentSentence)) { word in
+            ForEach(TextComparison.colorizeText(spokenText: spokenText, targetText: currentSentence)) { word in
                 Text(word.text + " ")
                     .foregroundColor(word.color)
                     .onTapGesture {
@@ -79,7 +89,12 @@ struct StoryView: View {
     private var transcriptionButton: some View {
         Button(action: {
             isTranscribing.toggle()
-            isTranscribing ? speechRecognizer.startTranscribing() : speechRecognizer.stopTranscribing()
+            if isTranscribing {
+                speechRecognizer.startTranscribing()
+            } else {
+                speechRecognizer.stopTranscribing()
+                spokenText = speechRecognizer.transcript // Preserve spoken text when stopping
+            }
         }) {
             Text(isTranscribing ? "Stop Transcribing" : "Start Transcribing")
                 .padding()
@@ -181,6 +196,7 @@ struct StoryView: View {
                 Button(action: {
                     if currentPage > 0 {
                         currentPage -= 1
+                        spokenText = ""
                         speechRecognizer.transcript = ""
                     }
                 }) {
@@ -198,6 +214,7 @@ struct StoryView: View {
                 Button(action: {
                     if currentPage < story.sentences.count - 1 {
                         currentPage += 1
+                        spokenText = ""
                         speechRecognizer.transcript = ""
                     }
                 }) {
@@ -234,14 +251,15 @@ struct StoryView: View {
 
     // MARK: - Fetch Pronunciation
     private func fetchPronunciation(for word: String) async {
+        audioURL = nil
+        showSheet = false
+        
         let url = await pronunciationService.fetchPronunciation(for: word)
         
-        self.audioURL = url
-        self.showSheet = url != nil
-        
-        // Debugging the audio URL
-        if let audioURL = url {
-            print("Audio URL for '\(word)': \(audioURL)")
+        if let validURL = url {
+            audioURL = validURL
+            showSheet = true
+            print("Audio URL for '\(word)': \(validURL)") // Debug print
         } else {
             print("No audio URL available for '\(word)'")
         }
