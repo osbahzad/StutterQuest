@@ -20,7 +20,7 @@ struct StorySelectionView: View {
                 VStack(alignment: .leading) {
                     // hello and stutterquest at the top
                     HStack {
-                        Text("Hi \(nickname)!")
+                      Text("Hi \(nickname.capitalized)!")
                             .font(.title)
                             .fontWeight(.bold)
 
