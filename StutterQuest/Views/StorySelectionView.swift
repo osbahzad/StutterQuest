@@ -57,7 +57,12 @@ struct StorySelectionView: View {
                 NavigationBarView()
             }
             .padding()
-            .background(Color(UIColor.systemBackground)) // Background color for the view
+//            .background(Color(UIColor.systemBackground)) // Background color for the view
+            .background(
+                            Image("background")
+                                .resizable()
+                                .scaledToFill()
+                        )
             .edgesIgnoringSafeArea(.all)
             
         }
