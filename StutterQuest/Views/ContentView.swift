@@ -65,6 +65,7 @@ struct ContentView: View {
                             await authViewModel.signUp(email: email, password: password)
                         } else {
                             await authViewModel.signIn(email: email, password: password)
+                          nickname = await authViewModel.fetch_nickname(email: email) ?? ""
                         }
                         if authViewModel.user != nil {
                             signed_in = true
@@ -101,7 +102,7 @@ struct ContentView: View {
                 Spacer()
                 RoundedRectangle(cornerRadius: 20)
                     .foregroundColor(.white)
-                    .frame(width: 300, height: 150)
+                    .frame(width: 400, height: 150)
                     .overlay(
                         VStack(spacing: 20) {
                             Text(alertMessage)
