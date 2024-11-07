@@ -43,6 +43,7 @@
 		19EE7BE22CDC67440078A05B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EE7BE12CDC67440078A05B /* SignUpView.swift */; };
 		19EE7BE42CDC67D10078A05B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19EE7BE32CDC67D10078A05B /* GoogleService-Info.plist */; };
 		7C8DBDAC2CDC13330035B50A /* StoryCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DBDAB2CDC13330035B50A /* StoryCompletedView.swift */; };
+		7C8DBDB02CDD0A900035B50A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DBDAF2CDD0A900035B50A /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		19EE7BE12CDC67440078A05B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		19EE7BE32CDC67D10078A05B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7C8DBDAB2CDC13330035B50A /* StoryCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCompletedView.swift; sourceTree = "<group>"; };
+		7C8DBDAF2CDD0A900035B50A /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 				19EE7BDD2CDC67200078A05B /* SelectNicknameView.swift */,
 				19EE7BDF2CDC67340078A05B /* SignInView.swift */,
 				19EE7BE12CDC67440078A05B /* SignUpView.swift */,
+				7C8DBDAF2CDD0A900035B50A /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				0746DDA02CD9612500BB8F10 /* TestView.swift in Sources */,
 				0746DD722CD2E5C800BB8F10 /* StoryView.swift in Sources */,
 				0746DD742CD2E5F000BB8F10 /* SpeechRecognizer.swift in Sources */,
+				7C8DBDB02CDD0A900035B50A /* LoadingView.swift in Sources */,
 				0746DD762CD2E61300BB8F10 /* TextComparison.swift in Sources */,
 				19EE7BD52CDC66360078A05B /* User.swift in Sources */,
 				0746DD7A2CD2EFA100BB8F10 /* PronunciationService.swift in Sources */,

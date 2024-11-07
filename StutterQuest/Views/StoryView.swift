@@ -14,7 +14,6 @@ struct StoryView: View {
     @State private var showSheet = false
     @State private var selectedWord: String? = nil
     @State private var currentPage = 0
-    @State private var currentSet = 0
     @State private var spokenText: String = "" // Track spoken text progress
 
     private let pronunciationService = PronunciationService()
@@ -144,7 +143,7 @@ struct StoryView: View {
 
                 HStack(spacing: 10) {
                     ForEach(0..<5) { index in
-                        let imageIndex = currentSet * 5 + index
+                        let imageIndex = (currentPage / 5) * 5 + index
                         if imageIndex < story.images.count {
                             previewImage(for: imageIndex)
                         } else {
