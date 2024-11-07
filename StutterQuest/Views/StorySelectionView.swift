@@ -59,8 +59,9 @@ struct StorySelectionView: View {
             .padding()
             .background(Color(UIColor.systemBackground)) // Background color for the view
             .edgesIgnoringSafeArea(.all)
-            .navigationBarBackButtonHidden(true)
+            
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
