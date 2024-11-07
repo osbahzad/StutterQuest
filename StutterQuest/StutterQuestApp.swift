@@ -24,7 +24,7 @@ struct StutterQuestApp: App {
 
     var body: some Scene {
         WindowGroup {
-            StorySelectionView()
+          ContentView()
 //            TestView()
         }
     }

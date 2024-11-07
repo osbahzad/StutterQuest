@@ -12,6 +12,7 @@ import SwiftUI
 
 struct StorySelectionView: View {
     @ObservedObject var storyRepository = StoryRepository()
+    var nickname: String
 
     var body: some View {
         NavigationView {
@@ -19,7 +20,7 @@ struct StorySelectionView: View {
                 VStack(alignment: .leading) {
                     // hello and stutterquest at the top
                     HStack {
-                        Text("Hi Prof. H!")
+                        Text("Hi \(nickname)!")
                             .font(.title)
                             .fontWeight(.bold)
 
@@ -58,6 +59,7 @@ struct StorySelectionView: View {
             .padding()
             .background(Color(UIColor.systemBackground)) // Background color for the view
             .edgesIgnoringSafeArea(.all)
+            .navigationBarBackButtonHidden(true)
         }
     }
 }

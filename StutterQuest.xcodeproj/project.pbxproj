@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0746DD3C2CD0365900BB8F10 /* StutterQuestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD3B2CD0365900BB8F10 /* StutterQuestApp.swift */; };
-		0746DD3E2CD0365900BB8F10 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD3D2CD0365900BB8F10 /* ContentView.swift */; };
 		0746DD402CD0365B00BB8F10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0746DD3F2CD0365B00BB8F10 /* Assets.xcassets */; };
 		0746DD432CD0365B00BB8F10 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0746DD422CD0365B00BB8F10 /* Preview Assets.xcassets */; };
 		0746DD4D2CD0365B00BB8F10 /* StutterQuestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD4C2CD0365B00BB8F10 /* StutterQuestTests.swift */; };
@@ -35,7 +34,14 @@
 		0746DE2D2CDC39DE00BB8F10 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0746DE2C2CDC39DE00BB8F10 /* FirebaseFirestoreCombine-Community */; };
 		0746DE2F2CDC39DE00BB8F10 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0746DE2E2CDC39DE00BB8F10 /* FirebaseStorage */; };
 		0746DE312CDC39DE00BB8F10 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0746DE302CDC39DE00BB8F10 /* FirebaseStorageCombine-Community */; };
-		0746DE332CDC3A2300BB8F10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0746DE322CDC3A2300BB8F10 /* GoogleService-Info.plist */; };
+		19EE7BD52CDC66360078A05B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EE7BD42CDC66360078A05B /* User.swift */; };
+		19EE7BD72CDC66630078A05B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EE7BD62CDC66630078A05B /* AuthViewModel.swift */; };
+		19EE7BDA2CDC66E00078A05B /* CustomToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EE7BD92CDC66E00078A05B /* CustomToggle.swift */; };
+		19EE7BDC2CDC67050078A05B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EE7BDB2CDC67050078A05B /* ContentView.swift */; };
+		19EE7BDE2CDC67200078A05B /* SelectNicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EE7BDD2CDC67200078A05B /* SelectNicknameView.swift */; };
+		19EE7BE02CDC67340078A05B /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EE7BDF2CDC67340078A05B /* SignInView.swift */; };
+		19EE7BE22CDC67440078A05B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EE7BE12CDC67440078A05B /* SignUpView.swift */; };
+		19EE7BE42CDC67D10078A05B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19EE7BE32CDC67D10078A05B /* GoogleService-Info.plist */; };
 		7C8DBDAC2CDC13330035B50A /* StoryCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DBDAB2CDC13330035B50A /* StoryCompletedView.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +65,6 @@
 /* Begin PBXFileReference section */
 		0746DD382CD0365900BB8F10 /* StutterQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StutterQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0746DD3B2CD0365900BB8F10 /* StutterQuestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StutterQuestApp.swift; sourceTree = "<group>"; };
-		0746DD3D2CD0365900BB8F10 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0746DD3F2CD0365B00BB8F10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0746DD422CD0365B00BB8F10 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0746DD482CD0365B00BB8F10 /* StutterQuestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StutterQuestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,7 +84,14 @@
 		0746DD972CD94C9E00BB8F10 /* StoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRepository.swift; sourceTree = "<group>"; };
 		0746DD9B2CD94D6200BB8F10 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
 		0746DD9F2CD9612500BB8F10 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
-		0746DE322CDC3A2300BB8F10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		19EE7BD42CDC66360078A05B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		19EE7BD62CDC66630078A05B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		19EE7BD92CDC66E00078A05B /* CustomToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggle.swift; sourceTree = "<group>"; };
+		19EE7BDB2CDC67050078A05B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		19EE7BDD2CDC67200078A05B /* SelectNicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectNicknameView.swift; sourceTree = "<group>"; };
+		19EE7BDF2CDC67340078A05B /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		19EE7BE12CDC67440078A05B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		19EE7BE32CDC67D10078A05B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7C8DBDAB2CDC13330035B50A /* StoryCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCompletedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,14 +153,13 @@
 		0746DD3A2CD0365900BB8F10 /* StutterQuest */ = {
 			isa = PBXGroup;
 			children = (
-				0746DE322CDC3A2300BB8F10 /* GoogleService-Info.plist */,
+				19EE7BE32CDC67D10078A05B /* GoogleService-Info.plist */,
 				0746DD9A2CD94D4E00BB8F10 /* ViewModels */,
 				0746DD962CD94C8100BB8F10 /* DataRepository */,
 				0746DD782CD2EF7D00BB8F10 /* Services */,
 				0746DD702CD2DE2600BB8F10 /* Models */,
 				0746DD6F2CD2DE1F00BB8F10 /* Views */,
 				0746DD3B2CD0365900BB8F10 /* StutterQuestApp.swift */,
-				0746DD3D2CD0365900BB8F10 /* ContentView.swift */,
 				0746DD3F2CD0365B00BB8F10 /* Assets.xcassets */,
 				0746DD412CD0365B00BB8F10 /* Preview Content */,
 			);
@@ -183,13 +194,18 @@
 		0746DD6F2CD2DE1F00BB8F10 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				19EE7BD82CDC66D20078A05B /* Components */,
 				0746DD712CD2E5C800BB8F10 /* StoryView.swift */,
 				0746DD7B2CD2F2FF00BB8F10 /* WebView.swift */,
 				0746DD7D2CD439D300BB8F10 /* StorySelectionView.swift */,
 				0746DD7F2CD5271800BB8F10 /* NavigationBarView.swift */,
+				19EE7BDB2CDC67050078A05B /* ContentView.swift */,
 				0746DD812CD5277700BB8F10 /* StoryCardView.swift */,
 				0746DD9F2CD9612500BB8F10 /* TestView.swift */,
 				7C8DBDAB2CDC13330035B50A /* StoryCompletedView.swift */,
+				19EE7BDD2CDC67200078A05B /* SelectNicknameView.swift */,
+				19EE7BDF2CDC67340078A05B /* SignInView.swift */,
+				19EE7BE12CDC67440078A05B /* SignUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +215,7 @@
 			children = (
 				0746DD752CD2E61300BB8F10 /* TextComparison.swift */,
 				0746DD942CD94BF600BB8F10 /* Story.swift */,
+				19EE7BD42CDC66360078A05B /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				0746DD9B2CD94D6200BB8F10 /* StoryViewModel.swift */,
+				19EE7BD62CDC66630078A05B /* AuthViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -233,6 +251,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		19EE7BD82CDC66D20078A05B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				19EE7BD92CDC66E00078A05B /* CustomToggle.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,8 +380,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0746DD432CD0365B00BB8F10 /* Preview Assets.xcassets in Resources */,
+				19EE7BE42CDC67D10078A05B /* GoogleService-Info.plist in Resources */,
 				0746DD402CD0365B00BB8F10 /* Assets.xcassets in Resources */,
-				0746DE332CDC3A2300BB8F10 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,12 +410,18 @@
 				0746DD722CD2E5C800BB8F10 /* StoryView.swift in Sources */,
 				0746DD742CD2E5F000BB8F10 /* SpeechRecognizer.swift in Sources */,
 				0746DD762CD2E61300BB8F10 /* TextComparison.swift in Sources */,
+				19EE7BD52CDC66360078A05B /* User.swift in Sources */,
 				0746DD7A2CD2EFA100BB8F10 /* PronunciationService.swift in Sources */,
-				0746DD3E2CD0365900BB8F10 /* ContentView.swift in Sources */,
+				19EE7BD72CDC66630078A05B /* AuthViewModel.swift in Sources */,
+				19EE7BDC2CDC67050078A05B /* ContentView.swift in Sources */,
 				7C8DBDAC2CDC13330035B50A /* StoryCompletedView.swift in Sources */,
 				0746DD982CD94C9E00BB8F10 /* StoryRepository.swift in Sources */,
+				19EE7BE22CDC67440078A05B /* SignUpView.swift in Sources */,
+				19EE7BDE2CDC67200078A05B /* SelectNicknameView.swift in Sources */,
 				0746DD7E2CD439D300BB8F10 /* StorySelectionView.swift in Sources */,
 				0746DD822CD5277700BB8F10 /* StoryCardView.swift in Sources */,
+				19EE7BDA2CDC66E00078A05B /* CustomToggle.swift in Sources */,
+				19EE7BE02CDC67340078A05B /* SignInView.swift in Sources */,
 				0746DD3C2CD0365900BB8F10 /* StutterQuestApp.swift in Sources */,
 				0746DD7C2CD2F2FF00BB8F10 /* WebView.swift in Sources */,
 				0746DD9C2CD94D6200BB8F10 /* StoryViewModel.swift in Sources */,
