@@ -110,7 +110,18 @@ class AuthViewModel: ObservableObject {
       DispatchQueue.main.async {
         self.errorMessage = error.localizedDescription
       }
-      print("error: \(self.errorMessage)")
+      print("error: \(String(describing: self.errorMessage))")
+    }
+  }
+  
+  func fetch_nickname(email: String) async -> String?{
+    do {
+      let doc = try await db.collection("user").whereField("email", isEqualTo: email).getDocuments()
+      print(doc)
+      return doc.documents.first?.data()["nickname"] as? String
+    } catch {
+      print(error)
+      return nil
     }
   }
 }

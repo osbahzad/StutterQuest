@@ -48,5 +48,7 @@ struct NavigationBarView: View {
             }
         }
         .padding(.top, 20)
+        .padding(.bottom, 20)
+        .background(Color(UIColor.systemBackground))
     }
 }

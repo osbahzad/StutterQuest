@@ -14,10 +14,10 @@ struct LoadingView: View {
     var body: some View {
         ZStack {
             // Background Image
-//            Image("backgroundImage")
-//                .resizable()
-//                .scaledToFill()
-//                .ignoresSafeArea()
+            Image("login_background")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
             
             VStack {
                 Spacer()
