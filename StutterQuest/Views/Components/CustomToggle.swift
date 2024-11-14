@@ -10,12 +10,14 @@ import SwiftUI
 struct CustomToggle: View {
   
   @Binding var signingUp: Bool
+  
   var body: some View {
      HStack(){
       Button(action: {
         withAnimation{
           signingUp = false
         }
+        
       }) {
         Text("Sign in")
           .foregroundColor(signingUp ? .gray : .white)
@@ -46,5 +48,6 @@ struct CustomToggle: View {
                               )
       }
     }
+     .padding()
   }
 }
