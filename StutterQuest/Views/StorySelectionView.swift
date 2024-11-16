@@ -3,10 +3,6 @@
 //  StutterQuest
 //
 //  Created by Omar Bahzad on 10/31/24.
-// Helo with AI
-
-
-// each story to a different view
 
 import SwiftUI
 
@@ -68,7 +64,9 @@ struct StorySelectionView: View {
         }
         .navigationBarBackButtonHidden(true)
     }
+} 
+struct StorySelectionView_Previews: PreviewProvider {
+    static var previews: some View {
+        StorySelectionView(nickname: "John")
+    }
 }
-
-
-

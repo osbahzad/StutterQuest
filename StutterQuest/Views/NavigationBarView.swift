@@ -7,48 +7,50 @@
 
 import SwiftUI
 
-// Navigation bar with four icons
 struct NavigationBarView: View {
     var body: some View {
-        VStack(spacing: 30) {
-            Button(action: {
-                print("Home button tapped")
-            }) {
-                Image(systemName: "house.fill")
-                    .resizable()
-                    .frame(width: 30, height: 30)
-                    .padding()
-            }
+        HStack {
+            Spacer()
             
-            Button(action: {
-                print("Leaderboard button tapped")
-            }) {
-                Image(systemName: "list.number")
-                    .resizable()
-                    .frame(width: 30, height: 30)
-                    .padding()
+            VStack(spacing: 30) {
+                NavigationButton(iconName: "house.fill", label: "Home")
+                NavigationButton(iconName: "list.number", label: "Leaderboard")
+                NavigationButton(iconName: "flame.fill", label: "Streaks")
+                NavigationButton(iconName: "gearshape.fill", label: "Settings")
             }
-            
-            Button(action: {
-                print("Streaks button tapped")
-            }) {
-                Image(systemName: "flame.fill")
-                    .resizable()
-                    .frame(width: 30, height: 30)
-                    .padding()
-            }
-            
-            Button(action: {
-                print("Settings button tapped")
-            }) {
-                Image(systemName: "gearshape.fill")
-                    .resizable()
-                    .frame(width: 30, height: 30)
-                    .padding()
-            }
+            .padding(10) 
+            .background(
+                Color(UIColor.secondarySystemBackground)
+                    .cornerRadius(15)
+                    .shadow(radius: 3)
+            )
+            .padding(.trailing, 20)
         }
-        .padding(.top, 20)
-        .padding(.bottom, 20)
-        .background(Color(UIColor.systemBackground))
+        .edgesIgnoringSafeArea(.trailing)
+    }
+}
+
+struct NavigationButton: View {
+    var iconName: String
+    var label: String
+    
+    var body: some View {
+        VStack(spacing: 5) { // Added spacing between icon and label
+            Image(systemName: iconName)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 30, height: 30)
+                .foregroundColor(Color(red: 0.42, green: 0.55, blue: 0.49))
+            
+            Text(label)
+                .font(.footnote)
+                .foregroundColor(.gray)
+        }
+    }
+}
+
+struct NavigationBarView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationBarView()
     }
 }
