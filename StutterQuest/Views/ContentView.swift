@@ -43,10 +43,6 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                Text("StutterQuest")
-                    .bold()
-                    .font(.title)
-                
                 // Toggle between Sign Up and Sign In
                 CustomToggle(signingUp: $signingUp)
                 
@@ -77,12 +73,13 @@ struct ContentView: View {
                     }
                 }) {
                     Text("Continue")
-                        .font(.title)
-                        .padding()
-                        .frame(width: 200, height: 50)
-                        .background(Color.orange)
-                        .foregroundColor(.white)
-                        .cornerRadius(20)
+                      .font(.system(size: 18, weight: .bold))
+                      .foregroundColor(.white)
+                        
+                      .frame(width: 200)
+                      .padding(.vertical, 10)
+                      .background(Color(red: 0.42, green: 0.55, blue: 0.49))
+                      .cornerRadius(15)
                 }
                 
                 if showAlert {
