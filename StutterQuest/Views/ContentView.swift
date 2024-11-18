@@ -136,8 +136,7 @@ struct ContentView: View {
     }
     
     // MARK: - Loading Process
-    private func startLoadingProcess() {
-        // Simulate loading delay for initial loading state
+    private func startLoadingProcess() { 
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             withAnimation {
                 isLoading = false
