@@ -1,32 +1,30 @@
-//
-//  NavigationBarView.swift
-//  StutterQuest
-//
-//  Created by Omar Bahzad on 11/1/24.
-// Help with AI
-
 import SwiftUI
 
 struct NavigationBarView: View {
     var body: some View {
-        HStack {
-            Spacer()
-            
-            VStack(spacing: 30) {
-                NavigationButton(iconName: "house.fill", label: "Home")
-                NavigationButton(iconName: "list.number", label: "Leaderboard")
-                NavigationButton(iconName: "flame.fill", label: "Streaks")
-                NavigationButton(iconName: "gearshape.fill", label: "Settings")
+        GeometryReader { geometry in
+            HStack {
+                Spacer()
+                
+                VStack(spacing: 30) {
+                    NavigationButton(iconName: "house.fill", label: "Home")
+                    NavigationButton(iconName: "list.number", label: "Leaderboard")
+                    NavigationButton(iconName: "flame.fill", label: "Streaks")
+                    NavigationButton(iconName: "gearshape.fill", label: "Settings")
+                }
+                .padding(10)
+                .background(
+                    Color(UIColor.secondarySystemBackground)
+                        .cornerRadius(15)
+                        .shadow(radius: 3)
+                )
+                .frame(maxHeight: .infinity) // Ensure the VStack takes all available space
+                .padding(.trailing, 20)
+                .position(x: geometry.size.width - 20, // Adjust horizontal position
+                          y: geometry.size.height / 2) // Vertically center the VStack
             }
-            .padding(10) 
-            .background(
-                Color(UIColor.secondarySystemBackground)
-                    .cornerRadius(15)
-                    .shadow(radius: 3)
-            )
-            .padding(.trailing, 20)
+            .edgesIgnoringSafeArea(.trailing)
         }
-        .edgesIgnoringSafeArea(.trailing)
     }
 }
 
@@ -35,7 +33,7 @@ struct NavigationButton: View {
     var label: String
     
     var body: some View {
-        VStack(spacing: 5) { // Added spacing between icon and label
+        VStack(spacing: 5) {
             Image(systemName: iconName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -52,5 +50,6 @@ struct NavigationButton: View {
 struct NavigationBarView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationBarView()
+            .frame(width: 100, height: 600) // Simulate screen height for preview
     }
 }
