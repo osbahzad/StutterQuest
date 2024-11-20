@@ -29,21 +29,19 @@ struct StoryCardView: View {
                     switch phase {
                     case .empty:
                         ProgressView() // Show a loading indicator while the image is loading
+                      
                     case .success(let image):
                         image
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 180, height: 100)
-                            .clipped()
+                            .frame(width: 380, height: 180)
                             .cornerRadius(10)
-                            .padding(.top)
                     case .failure:
                         Text("Failed to load image")
                             .foregroundColor(.gray)
-                            .frame(width: 180, height: 100)
+                            .frame(width: 380, height: 180)
                             .background(Color(UIColor.systemGray5))
                             .cornerRadius(10)
-                            .padding(.top)
                     @unknown default:
                         EmptyView()
                     }
@@ -51,25 +49,32 @@ struct StoryCardView: View {
             } else {
                 // Placeholder image if no valid URL is available
                 Image(systemName: "photo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 180, height: 100)
-                    .foregroundColor(.gray)
-                    .padding(.top)
+                  .foregroundColor(.gray)
+                  .frame(width: 380, height: 180)
+                  .background(Color(UIColor.systemGray5))
+                  .cornerRadius(10)
             }
 
             Text(story.storyName)
-                .font(.headline)
-                .padding(.top, 5)
+              .font(.headline)
+              .foregroundColor(.primary)
+              .lineLimit(1)
+              .truncationMode(.tail)
 
             Text(story.storyDescription)
-                .font(.subheadline)
-                .multilineTextAlignment(.center)
-                .padding([.leading, .trailing, .bottom])
+              .font(.subheadline)
+              .foregroundColor(.secondary)
+              .lineLimit(2)
+              .multilineTextAlignment(.leading)
         }
-        .frame(width: 200, height: 250)
+        .frame(width: 400, height: 250)
         .background(Color(UIColor.secondarySystemBackground))
         .cornerRadius(15)
-        .shadow(radius: 5)
+    }
+}
+
+struct StoryCardView_Previews: PreviewProvider {
+    static var previews: some View {
+        StorySelectionView(nickname: "John")
     }
 }
