@@ -7,9 +7,12 @@ struct NavigationBarView: View {
                 Spacer()
                 
                 VStack(spacing: 30) {
+                  
                     NavigationButton(iconName: "house.fill", label: "Home")
                     NavigationButton(iconName: "list.number", label: "Leaderboard")
-                    NavigationButton(iconName: "flame.fill", label: "Streaks")
+                    NavigationLink(destination: StreaksView()) {
+                      NavigationButton(iconName: "flame.fill", label: "Streaks")
+                    }
                     NavigationButton(iconName: "gearshape.fill", label: "Settings")
                 }
                 .padding(10)
