@@ -43,6 +43,7 @@
 		19EE7C8D2CDD35340078A05B /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 19EE7C8C2CDD35340078A05B /* FirebaseFirestoreCombine-Community */; };
 		19EE7C8F2CDD35340078A05B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 19EE7C8E2CDD35340078A05B /* FirebaseStorage */; };
 		19EE7C912CDD35340078A05B /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 19EE7C902CDD35340078A05B /* FirebaseStorageCombine-Community */; };
+		7C80BF4A2CEEB1FC0033DD55 /* PreviewPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C80BF492CEEB1FC0033DD55 /* PreviewPanelView.swift */; };
 		7C8DBDAC2CDC13330035B50A /* StoryCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DBDAB2CDC13330035B50A /* StoryCompletedView.swift */; };
 		7C8DBDB02CDD0A900035B50A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DBDAF2CDD0A900035B50A /* LoadingView.swift */; };
 /* End PBXBuildFile section */
@@ -94,6 +95,7 @@
 		19EE7BDF2CDC67340078A05B /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		19EE7BE12CDC67440078A05B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		19EE7BE32CDC67D10078A05B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7C80BF492CEEB1FC0033DD55 /* PreviewPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPanelView.swift; sourceTree = "<group>"; };
 		7C8DBDAB2CDC13330035B50A /* StoryCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCompletedView.swift; sourceTree = "<group>"; };
 		7C8DBDAF2CDD0A900035B50A /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -211,6 +213,7 @@
 				19EE7BDF2CDC67340078A05B /* SignInView.swift */,
 				19EE7BE12CDC67440078A05B /* SignUpView.swift */,
 				7C8DBDAF2CDD0A900035B50A /* LoadingView.swift */,
+				7C80BF492CEEB1FC0033DD55 /* PreviewPanelView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				19EE7BE22CDC67440078A05B /* SignUpView.swift in Sources */,
 				19EE7BDE2CDC67200078A05B /* SelectNicknameView.swift in Sources */,
 				0746DD7E2CD439D300BB8F10 /* StorySelectionView.swift in Sources */,
+				7C80BF4A2CEEB1FC0033DD55 /* PreviewPanelView.swift in Sources */,
 				0746DD822CD5277700BB8F10 /* StoryCardView.swift in Sources */,
 				19EE7BDA2CDC66E00078A05B /* CustomToggle.swift in Sources */,
 				19EE7BE02CDC67340078A05B /* SignInView.swift in Sources */,

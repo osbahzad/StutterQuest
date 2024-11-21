@@ -1,110 +1,66 @@
-//
-//  StoryView.swift
-//  StutterQuest
-//
-//  Created by Omar Bahzad on 10/30/24.
-// Help with AI
-
 import SwiftUI
 
 struct StoryView: View {
     @StateObject private var speechRecognizer = SpeechRecognizer()
+
     @State private var isTranscribing = false
     @State private var audioURL: String? = nil
     @State private var showSheet = false
     @State private var selectedWord: String? = nil
     @State private var currentPage = 0
-    @State private var spokenText: String = "" // Track spoken text progress
+    @State private var spokenText: String = ""
+    @State private var isPaused = false // Tracks if the story is paused
 
     private let pronunciationService = PronunciationService()
+
     let story: Story
 
     var body: some View {
         ZStack {
-            // MARK: - Background Image
             if currentPage < story.images.count && currentPage < story.sentences.count {
                 backgroundImage
                     .edgesIgnoringSafeArea(.all)
+                    .offset(y: -50) // Shift background up
             }
 
             VStack {
-                Spacer() // Push everything down
+                Spacer()
 
-                // MARK: - Text Container with Sentence and Button
+                transcriptionButton
+
                 VStack {
                     if currentPage < story.sentences.count && currentPage < story.images.count {
                         let currentSentence = story.sentences[currentPage]
-                        
-                        // Sentence with color-coded words
                         sentenceView(for: currentSentence)
-
-                        // "Start Transcribing" button
-                        transcriptionButton
                     }
                 }
-                .background(Color.white)
+                .background(Color.white.opacity(0.85))
                 .cornerRadius(10)
-                .padding([.horizontal, .bottom])
-                .frame(height: UIScreen.main.bounds.height / 3)
 
-                // MARK: - Preview Panels (at the bottom)
                 previewPanels
                     .frame(height: UIScreen.main.bounds.height * 0.25)
             }
 
-            // MARK: - Navigation Buttons (Left and Right Arrows)
             navigationButtons
+
+            if isPaused {
+                pausedOverlay // Display paused page
+            }
         }
-        .padding()
-        
-        // Show sheet with WebView for pronunciation audio
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                pauseButton
+            }
+        }
+        .navigationBarBackButtonHidden(true) // Hide back button
+        .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showSheet, onDismiss: {
-            spokenText = speechRecognizer.transcript // Update spoken text on sheet dismissal
+            spokenText = speechRecognizer.transcript
         }) {
             pronunciationSheet
         }
-        .navigationTitle(story.storyName)
-        .navigationBarTitleDisplayMode(.inline)
     }
 
-    // MARK: - Sentence View (with color-coded words)
-    private func sentenceView(for currentSentence: String) -> some View {
-        HStack {
-            ForEach(TextComparison.colorizeText(spokenText: spokenText, targetText: currentSentence)) { word in
-                Text(word.text + " ")
-                    .foregroundColor(word.color)
-                    .onTapGesture {
-                        if word.color == .red {
-                            selectedWord = word.strippedText
-                            Task { await fetchPronunciation(for: word.strippedText) }
-                        }
-                    }
-            }
-        }
-        .padding()
-    }
-
-    // MARK: - Transcription Button
-    private var transcriptionButton: some View {
-        Button(action: {
-            isTranscribing.toggle()
-            if isTranscribing {
-                speechRecognizer.startTranscribing()
-            } else {
-                speechRecognizer.stopTranscribing()
-                spokenText = speechRecognizer.transcript // Preserve spoken text when stopping
-            }
-        }) {
-            Text(isTranscribing ? "Stop Transcribing" : "Start Transcribing")
-                .padding()
-                .background(isTranscribing ? Color.red : Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-        }
-        .padding(.top)
-    }
-
-    // MARK: - Background Image
     private var backgroundImage: some View {
         Group {
             if let url = URL(string: story.images[currentPage]) {
@@ -130,106 +86,125 @@ struct StoryView: View {
             }
         }
     }
+  // Preview Panels
+   private var previewPanels: some View {
+       PreviewPanelView(story: story, currentPage: currentPage) { selectedPage in
+           currentPage = selectedPage
+           spokenText = ""
+           speechRecognizer.transcript = ""
+       }
+       .frame(height: UIScreen.main.bounds.height * 0.25)
+   }
+  
+  private var navigationButtons: some View {
+          HStack {
+              Button(action: {
+                  if currentPage > 0 {
+                      currentPage -= 1
+                      spokenText = ""
+                      speechRecognizer.transcript = ""
+                  }
+              }) {
+                  Image(systemName: "chevron.left.circle.fill")
+                      .resizable()
+                      .frame(width: 50, height: 50)
+                      .foregroundColor(.orange)
+              }
 
-    // MARK: - Preview Panels
-    private var previewPanels: some View {
-        VStack {
-            Spacer()
-            ZStack {
-                Rectangle()
-                    .fill(Color.black)
-                    .frame(height: 100)
-                    .edgesIgnoringSafeArea(.bottom)
+              Spacer()
 
-                HStack(spacing: 10) {
-                    ForEach(0..<5) { index in
-                        let imageIndex = (currentPage / 5) * 5 + index
-                        if imageIndex < story.images.count {
-                            previewImage(for: imageIndex)
-                        } else {
-                            placeholderImage
+              Button(action: {
+                  if currentPage < story.sentences.count - 1 {
+                      currentPage += 1
+                      spokenText = ""
+                      speechRecognizer.transcript = ""
+                  }
+              }) {
+                  Image(systemName: "chevron.right.circle.fill")
+                      .resizable()
+                      .frame(width: 50, height: 50)
+                      .foregroundColor(.green)
+              }
+          }
+          .padding(.horizontal)
+          .padding(.top, 10)
+      }
+
+    private var pauseButton: some View {
+        Button(action: {
+            isPaused.toggle()
+        }) {
+            Image(systemName: "pause.circle.fill")
+                .font(.title)
+                .foregroundColor(.white)
+        }
+    }
+
+    private var pausedOverlay: some View {
+        ZStack {
+            Color.black.opacity(0.6)
+                .edgesIgnoringSafeArea(.all)
+
+            VStack(spacing: 20) {
+                Text("PAUSED")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+
+                HStack(spacing: 40) {
+                    Button(action: {
+                        // Navigate back to home (StorySelectionView)
+                        // Assuming a NavigationStack is used
+                        if let window = UIApplication.shared.windows.first {
+                            window.rootViewController = UIHostingController(rootView: StorySelectionView(nickname: "John"))
+                            window.makeKeyAndVisible()
                         }
+                    }) {
+                        Image(systemName: "house.fill")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                    }
+
+                    Button(action: {
+                        currentPage = 0 // Restart the story
+                        isPaused = false
+                    }) {
+                        Image(systemName: "arrow.counterclockwise")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                    }
+
+                    Button(action: {
+                        // Placeholder for settings
+                    }) {
+                        Image(systemName: "gearshape.fill")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
                     }
                 }
-                .padding(.horizontal)
             }
         }
     }
 
-    // MARK: - Preview Image
-    private func previewImage(for index: Int) -> some View {
-        let imageUrl = URL(string: story.images[index])
-        return AsyncImage(url: imageUrl) { phase in
-            switch phase {
-            case .empty:
-                ProgressView()
-            case .success(let image):
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 120, height: 60)
-                    .clipped()
-                    .cornerRadius(8)
-                    .opacity(index == currentPage ? 1.0 : 0.5)
-            case .failure:
-                placeholderImage
-            @unknown default:
-                EmptyView()
+    private var transcriptionButton: some View {
+        Button(action: {
+            isTranscribing.toggle()
+            if isTranscribing {
+                speechRecognizer.startTranscribing()
+            } else {
+                speechRecognizer.stopTranscribing()
+                spokenText = speechRecognizer.transcript
             }
+        }) {
+            Text(isTranscribing ? "Stop Transcribing" : "Start Transcribing")
+                .padding()
+                .background(isTranscribing ? Color.red : Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(10)
         }
+        .padding(.top)
     }
 
-    // MARK: - Placeholder Image
-    private var placeholderImage: some View {
-        Color.gray
-            .frame(width: 60, height: 60)
-            .cornerRadius(8)
-            .opacity(0.3)
-    }
-
-    // MARK: - Navigation Buttons
-    private var navigationButtons: some View {
-        VStack {
-            HStack {
-                // "Back" button
-                Button(action: {
-                    if currentPage > 0 {
-                        currentPage -= 1
-                        spokenText = ""
-                        speechRecognizer.transcript = ""
-                    }
-                }) {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.white)
-                        .frame(width: 40, height: 40)
-                        .background(Color.orange)
-                        .cornerRadius(20)
-                }
-                .padding(.leading, 20)
-
-                Spacer()
-
-                // "Next" button
-                Button(action: {
-                    if currentPage < story.sentences.count - 1 {
-                        currentPage += 1
-                        spokenText = ""
-                        speechRecognizer.transcript = ""
-                    }
-                }) {
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(.white)
-                        .frame(width: 40, height: 40)
-                        .background(Color.green)
-                        .cornerRadius(20)
-                }
-                .padding(.trailing, 20)
-            }
-            .padding(.horizontal)
-        }
-    }
-
-    // MARK: - Pronunciation Sheet
     private var pronunciationSheet: some View {
         VStack {
             HStack {
@@ -248,19 +223,39 @@ struct StoryView: View {
         }
     }
 
-    // MARK: - Fetch Pronunciation
+    private func sentenceView(for currentSentence: String) -> some View {
+        HStack {
+            ForEach(TextComparison.colorizeText(spokenText: spokenText, targetText: currentSentence)) { word in
+                Text(word.text + " ")
+                    .foregroundColor(word.color)
+                    .onTapGesture {
+                        if word.color == .red {
+                            selectedWord = word.strippedText
+                            Task { await fetchPronunciation(for: word.strippedText) }
+                        }
+                    }
+            }
+        }
+        .padding()
+    }
+
     private func fetchPronunciation(for word: String) async {
         audioURL = nil
         showSheet = false
-        
+
         let url = await pronunciationService.fetchPronunciation(for: word)
-        
+
         if let validURL = url {
             audioURL = validURL
             showSheet = true
-            print("Audio URL for '\(word)': \(validURL)") // Debug print
-        } else {
-            print("No audio URL available for '\(word)'")
         }
     }
 }
+
+struct StoryView_Previews: PreviewProvider {
+    static var previews: some View {
+      StorySelectionView(nickname: "John")
+
+    }
+}
+
