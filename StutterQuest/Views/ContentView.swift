@@ -6,15 +6,16 @@ struct ContentView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var nickname = ""
-    @State private var signed_in = false
+    @State private var signedIn = false
     @State private var showAlert = false
     @State private var alertMessage = ""
-    @State private var username_saved = false
+    @State private var usernameSaved = false
     @State private var isLoading = true // Loading state
-    
+    @State private var showTutorial = false // Track if the tutorial should be shown
+
     // Combined boolean for new user
     private var needNickname: Bool {
-        return signingUp && signed_in
+        return signingUp && signedIn
     }
     
     var body: some View {
@@ -23,6 +24,14 @@ struct ContentView: View {
                 if isLoading {
                     LoadingView() // Show loading view first
                         .transition(.opacity)
+                } else if showTutorial {
+                    NavigationLink(destination: TutorialView(onComplete: {
+                        showTutorial = false
+                        signedIn = true
+                        UserDefaults.standard.set(true, forKey: "HasSeenTutorial")
+                    }), isActive: $showTutorial) {
+                        EmptyView()
+                    }
                 } else {
                     mainContentView // Show login/sign-up view after loading
                 }
@@ -61,10 +70,14 @@ struct ContentView: View {
                             await authViewModel.signUp(email: email, password: password)
                         } else {
                             await authViewModel.signIn(email: email, password: password)
-                          nickname = await authViewModel.fetch_nickname(email: email) ?? ""
+                            nickname = await authViewModel.fetch_nickname(email: email) ?? ""
                         }
                         if authViewModel.user != nil {
-                            signed_in = true
+                            if shouldShowTutorial() {
+                                showTutorial = true
+                            } else {
+                                signedIn = true
+                            }
                         }
                         if let errorMessage = authViewModel.errorMessage {
                             alertMessage = errorMessage
@@ -73,13 +86,12 @@ struct ContentView: View {
                     }
                 }) {
                     Text("Continue")
-                      .font(.system(size: 18, weight: .bold))
-                      .foregroundColor(.white)
-                        
-                      .frame(width: 200)
-                      .padding(.vertical, 10)
-                      .background(Color(red: 0.42, green: 0.55, blue: 0.49))
-                      .cornerRadius(15)
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(.white)
+                        .frame(width: 200)
+                        .padding(.vertical, 10)
+                        .background(Color(red: 0.42, green: 0.55, blue: 0.49))
+                        .cornerRadius(15)
                 }
                 
                 if showAlert {
@@ -124,11 +136,11 @@ struct ContentView: View {
     private var backgroundNavigationLinks: some View {
         Group {
             if signingUp {
-                NavigationLink(destination: SelectNicknameView(nickname: $nickname, username_saved: username_saved, authViewModel: authViewModel), isActive: .constant(needNickname)) {
+                NavigationLink(destination: SelectNicknameView(nickname: $nickname, username_saved: usernameSaved, authViewModel: authViewModel), isActive: .constant(needNickname)) {
                     EmptyView()
                 }
             } else {
-                NavigationLink(destination: StorySelectionView(nickname: nickname), isActive: $signed_in) {
+                NavigationLink(destination: StorySelectionView(nickname: nickname), isActive: $signedIn) {
                     EmptyView()
                 }
             }
@@ -136,15 +148,19 @@ struct ContentView: View {
     }
     
     // MARK: - Loading Process
-    private func startLoadingProcess() { 
+    private func startLoadingProcess() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             withAnimation {
                 isLoading = false
             }
         }
     }
-}
+    
+    // MARK: - Check if Tutorial Should Be Shown
+    private func shouldShowTutorial() -> Bool {
+        return !UserDefaults.standard.bool(forKey: "HasSeenTutorial")
+//        return true
+    }
+    
 
-#Preview {
-    ContentView()
 }

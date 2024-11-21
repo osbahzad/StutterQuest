@@ -21,10 +21,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct StutterQuestApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
 
     var body: some Scene {
         WindowGroup {
           ContentView() 
+//            TutorialView(onComplete: () -> Void)
         }
     }
 }
