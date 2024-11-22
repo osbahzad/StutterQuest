@@ -44,6 +44,8 @@ class AuthViewModel: ObservableObject {
         "rank": newUser.rank
       ])
       
+      await save_login_time(uid: uid)
+      
       DispatchQueue.main.async {
         self.user = newUser
       }
@@ -70,6 +72,14 @@ class AuthViewModel: ObservableObject {
       print("attempting to sign in with email: \(email) and password: \(password)")
       let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
       let user_id = authResult.user.uid
+      
+      let sessionId = UUID().uuidString
+      let today = Date()
+      try await db.collection("user").document(user_id).collection("sessions").document(sessionId).setData([
+        "login_date": today
+      ])
+      await update_day_streak(userID: user_id)
+      
       let document = try await db.collection("user").document(user_id).getDocument()
       if let data = document.data() {
         let fetchedUser = User(
@@ -117,15 +127,51 @@ class AuthViewModel: ObservableObject {
   func fetch_nickname(email: String) async -> String?{
     do {
       let doc = try await db.collection("user").whereField("email", isEqualTo: email).getDocuments()
-      print(doc)
       return doc.documents.first?.data()["nickname"] as? String
     } catch {
-      print(error)
       return nil
     }
   }
   
+  func update_day_streak(userID: String) async {
+    do {
+      let sessionDocs = try await db.collection("user").document(userID).collection("sessions").getDocuments()
+      print("sessionDocs: ", sessionDocs)
+      let sessions = sessionDocs.documents.compactMap { doc -> Date? in
+        let date = doc.data()["login_date"] as? Timestamp
+        return date?.dateValue()
+      }
+      print("sessions: ", sessions)
+      let sortedSessions = sessions.sorted()
+      var streak = 0
+      var lastDate: Date? = nil
+      
+      for session in sortedSessions {
+        if let last = lastDate, Calendar.current.isDate(last, inSameDayAs: session.addingTimeInterval(-86400)) {
+          streak += 1
+        } else {
+          streak = 1
+        }
+        lastDate = session
+      }
+      try await db.collection("user").document(userID).updateData(["num_streak_days": streak])
+    } catch {
+      print("failed to update streak days")
+    }
+  }
   
+  func save_login_time(uid: String) async {
+    do {
+      let sessionId = UUID().uuidString
+      let today = Date()
+      try await db.collection("user").document(uid).collection("sessions").document(sessionId).setData([
+        "login_date": today
+      ])
+      await update_day_streak(userID: uid)
+    } catch {
+      print("failed to save login time")
+    }
+  }
   
   
 }

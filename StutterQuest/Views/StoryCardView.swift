@@ -73,8 +73,8 @@ struct StoryCardView: View {
     }
 }
 
-struct StoryCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        StorySelectionView(nickname: "John")
-    }
-}
+//struct StoryCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StorySelectionView(nickname: "John")
+//    }
+//}

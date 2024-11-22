@@ -124,11 +124,11 @@ struct ContentView: View {
     private var backgroundNavigationLinks: some View {
         Group {
             if signingUp {
-                NavigationLink(destination: SelectNicknameView(nickname: $nickname, username_saved: username_saved, authViewModel: authViewModel), isActive: .constant(needNickname)) {
+                NavigationLink(destination: SelectNicknameView(nickname: $nickname, username_saved: username_saved, authViewModel: authViewModel, email: email), isActive: .constant(needNickname)) {
                     EmptyView()
                 }
             } else {
-                NavigationLink(destination: StorySelectionView(nickname: nickname), isActive: $signed_in) {
+              NavigationLink(destination: StorySelectionView(nickname: nickname, email:email), isActive: $signed_in) {
                     EmptyView()
                 }
             }

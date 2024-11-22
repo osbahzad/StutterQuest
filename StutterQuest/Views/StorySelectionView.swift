@@ -11,7 +11,7 @@ struct StorySelectionView: View {
   
   @ObservedObject var storyRepository = StoryRepository()
   var nickname: String
-
+  var email: String
   var body: some View {
     NavigationView {
       
@@ -38,7 +38,7 @@ struct StorySelectionView: View {
         }
         .padding()
         
-        NavigationBarView()
+        NavigationBarView(email: email)
           .frame(width: 70)
       }
       
@@ -53,8 +53,8 @@ struct StorySelectionView: View {
   }
 }
  
-struct StorySelectionView_Previews: PreviewProvider {
-  static var previews: some View {
-    StorySelectionView(nickname: "John")
-  }
-}
+//struct StorySelectionView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    StorySelectionView(nickname: "John", email: email)
+//  }
+//}

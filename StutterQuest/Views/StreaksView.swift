@@ -9,6 +9,10 @@ import SwiftUI
 
 struct StreaksView: View {
   @StateObject private var userDataViewModel = UserDataViewModel()
+  @State private var num_days = 0
+  @State private var num_hours = 0
+  @State private var num_books = 0
+  var email: String
     var body: some View {
       VStack{
         Text("Progress")
@@ -18,22 +22,29 @@ struct StreaksView: View {
           VStack{
             Image("days_read")
               .padding()
-            Text("\(String(describing: userDataViewModel.num_days_read)) days_read")
+            Text("\(num_days) day streak!")
           }
           VStack {
             Image("hours_read")
               .padding()
-            Text("\(String(describing: userDataViewModel.num_hours_read)) hours read")
+            Text("\(num_hours) hours read")
           }
           VStack {
             Image("books_read")
               .padding()
-            Text("\(String(describing: userDataViewModel.num_books_read)) books read")
+            Text("\(num_books) books read")
           }
-          NavigationBarView()
+          NavigationBarView(email: email)
             
         }
         
+      }
+      .onAppear {
+        Task {
+            num_days = await userDataViewModel.fetch_num_days_read(email: email)
+            num_hours = await userDataViewModel.fetch_num_hours_read(email: email)
+            num_books = await userDataViewModel.fetch_num_books_read(email: email)
+        }
       }
       .navigationBarBackButtonHidden(true)
       .background(
@@ -44,6 +55,6 @@ struct StreaksView: View {
    
 }
 
-#Preview {
-    StreaksView()
-}
+//#Preview {
+//    StreaksView()
+//}

@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct NavigationBarView: View {
+    var email: String
     var body: some View {
         GeometryReader { geometry in
             HStack {
@@ -10,7 +11,7 @@ struct NavigationBarView: View {
                   
                     NavigationButton(iconName: "house.fill", label: "Home")
                     NavigationButton(iconName: "list.number", label: "Leaderboard")
-                    NavigationLink(destination: StreaksView()) {
+                    NavigationLink(destination: StreaksView(email: email)) {
                       NavigationButton(iconName: "flame.fill", label: "Streaks")
                     }
                     NavigationButton(iconName: "gearshape.fill", label: "Settings")
@@ -50,9 +51,9 @@ struct NavigationButton: View {
     }
 }
 
-struct NavigationBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationBarView()
-            .frame(width: 100, height: 600) // Simulate screen height for preview
-    }
-}
+//struct NavigationBarView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationBarView()
+//            .frame(width: 100, height: 600) // Simulate screen height for preview
+//    }
+//}
