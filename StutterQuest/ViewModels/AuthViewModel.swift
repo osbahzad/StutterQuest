@@ -15,6 +15,8 @@ import Combine
 class AuthViewModel: ObservableObject {
   @Published var user: User?
   @Published var errorMessage: String?
+  @Published var currentSession: String?
+  @Published var signedIn: Bool = true
   
   private var db = Firestore.firestore()
   
@@ -73,12 +75,7 @@ class AuthViewModel: ObservableObject {
       let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
       let user_id = authResult.user.uid
       
-      let sessionId = UUID().uuidString
-      let today = Date()
-      try await db.collection("user").document(user_id).collection("sessions").document(sessionId).setData([
-        "login_date": today
-      ])
-      await update_day_streak(userID: user_id)
+      await save_login_time(uid: user_id)
       
       let document = try await db.collection("user").document(user_id).getDocument()
       if let data = document.data() {
@@ -93,7 +90,9 @@ class AuthViewModel: ObservableObject {
           rank: data["rank"] as? Int ?? 0
         )
         DispatchQueue.main.async {
-            self.user = fetchedUser
+          self.user = fetchedUser
+//          self.currentSession = sessionId
+          print("current session: ", self.currentSession ?? "")
         }
       }
       print("user has signed in with email: \(email)")
@@ -111,6 +110,23 @@ class AuthViewModel: ObservableObject {
     }
   }
   
+  func logout(email: String) async {
+    do {
+      let user_id = try await db.collection("user").whereField("email", isEqualTo: email).getDocuments().documents.first?.data()["user_id"] as? String
+      let currentSession = (await find_most_recent_login(uid: user_id!))!
+      try await db.collection("user").document(user_id!).collection("sessions").document(currentSession).updateData(["logout_date": Date()])
+      try Auth.auth().signOut()
+      DispatchQueue.main.async {
+        self.user = nil
+        self.currentSession = nil
+        self.signedIn = false
+        print("user has signed out")
+      }
+    } catch {
+      print("failed to sign out")
+    }
+  }
+  
   func save_nickname(userID: String, nickname: String) async {
     do {
       try await db.collection("user").document(userID).updateData(["nickname": nickname])
@@ -121,15 +137,6 @@ class AuthViewModel: ObservableObject {
         self.errorMessage = error.localizedDescription
       }
       print("error: \(String(describing: self.errorMessage))")
-    }
-  }
-  
-  func fetch_nickname(email: String) async -> String?{
-    do {
-      let doc = try await db.collection("user").whereField("email", isEqualTo: email).getDocuments()
-      return doc.documents.first?.data()["nickname"] as? String
-    } catch {
-      return nil
     }
   }
   
@@ -164,6 +171,7 @@ class AuthViewModel: ObservableObject {
     do {
       let sessionId = UUID().uuidString
       let today = Date()
+      
       try await db.collection("user").document(uid).collection("sessions").document(sessionId).setData([
         "login_date": today
       ])
@@ -173,5 +181,29 @@ class AuthViewModel: ObservableObject {
     }
   }
   
-  
+  func find_most_recent_login(uid: String) async -> String? {
+    do {
+      let sessions = try await db.collection("user").document(uid).collection("sessions").getDocuments()
+      var mostRecentSession: String?
+      var mostRecentDate: Date?
+        
+      for session in sessions.documents {
+        if let date = session.data()["login_date"] as? Timestamp {
+          let loginDate = date.dateValue()
+          if mostRecentDate == nil || loginDate > mostRecentDate! {
+            mostRecentDate = loginDate
+            mostRecentSession = session.documentID
+          }
+        }
+      }
+          return mostRecentSession
+    } catch {
+      
+      print("failed to find most recent login")
+      return nil
+    }
+
+  }
 }
+
+

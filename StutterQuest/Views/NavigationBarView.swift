@@ -2,16 +2,18 @@ import SwiftUI
 
 struct NavigationBarView: View {
     var email: String
+    var nickname: String
     var body: some View {
         GeometryReader { geometry in
             HStack {
                 Spacer()
                 
                 VStack(spacing: 30) {
-                  
-                    NavigationButton(iconName: "house.fill", label: "Home")
+                    NavigationLink(destination: StorySelectionView(nickname: nickname, email: email)) {
+                      NavigationButton(iconName: "house.fill", label: "Home")
+                    }
                     NavigationButton(iconName: "list.number", label: "Leaderboard")
-                    NavigationLink(destination: StreaksView(email: email)) {
+                    NavigationLink(destination: StreaksView(email: email, nickname: nickname)) {
                       NavigationButton(iconName: "flame.fill", label: "Streaks")
                     }
                     NavigationButton(iconName: "gearshape.fill", label: "Settings")

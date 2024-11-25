@@ -13,6 +13,7 @@ struct StreaksView: View {
   @State private var num_hours = 0
   @State private var num_books = 0
   var email: String
+  var nickname: String
     var body: some View {
       VStack{
         Text("Progress")
@@ -34,7 +35,8 @@ struct StreaksView: View {
               .padding()
             Text("\(num_books) books read")
           }
-          NavigationBarView(email: email)
+          NavigationBarView(email: email, nickname: nickname)
+            
             
         }
         

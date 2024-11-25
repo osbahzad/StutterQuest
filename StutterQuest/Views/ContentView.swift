@@ -31,6 +31,7 @@ struct ContentView: View {
                 startLoadingProcess()
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     // MARK: - Main Content View (Login/Sign-Up)
@@ -61,7 +62,7 @@ struct ContentView: View {
                             await authViewModel.signUp(email: email, password: password)
                         } else {
                             await authViewModel.signIn(email: email, password: password)
-                          nickname = await authViewModel.fetch_nickname(email: email) ?? ""
+                          nickname = await UserDataViewModel().fetch_nickname(email: email) ?? ""
                         }
                         if authViewModel.user != nil {
                             signed_in = true

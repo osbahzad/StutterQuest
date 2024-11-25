@@ -17,6 +17,15 @@ class UserDataViewModel: ObservableObject {
   @Published var num_books_read: Int?
   private var db = Firestore.firestore()
   
+  func fetch_nickname(email: String) async -> String?{
+    do {
+      let doc = try await db.collection("user").whereField("email", isEqualTo: email).getDocuments()
+      return doc.documents.first?.data()["nickname"] as? String
+    } catch {
+      return nil
+    }
+  }
+  
   func fetch_num_hours_read(email: String) async -> Int {
     do {
       let doc = try await db.collection("user").whereField("email", isEqualTo: email).getDocuments()
