@@ -115,6 +115,7 @@ class AuthViewModel: ObservableObject {
       let user_id = try await db.collection("user").whereField("email", isEqualTo: email).getDocuments().documents.first?.data()["user_id"] as? String
       let currentSession = (await find_most_recent_login(uid: user_id!))!
       try await db.collection("user").document(user_id!).collection("sessions").document(currentSession).updateData(["logout_date": Date()])
+      await UserDataViewModel().update_hours_read(userID: user_id!)
       try Auth.auth().signOut()
       DispatchQueue.main.async {
         self.user = nil
@@ -140,33 +141,6 @@ class AuthViewModel: ObservableObject {
     }
   }
   
-  func update_day_streak(userID: String) async {
-    do {
-      let sessionDocs = try await db.collection("user").document(userID).collection("sessions").getDocuments()
-      print("sessionDocs: ", sessionDocs)
-      let sessions = sessionDocs.documents.compactMap { doc -> Date? in
-        let date = doc.data()["login_date"] as? Timestamp
-        return date?.dateValue()
-      }
-      print("sessions: ", sessions)
-      let sortedSessions = sessions.sorted()
-      var streak = 0
-      var lastDate: Date? = nil
-      
-      for session in sortedSessions {
-        if let last = lastDate, Calendar.current.isDate(last, inSameDayAs: session.addingTimeInterval(-86400)) {
-          streak += 1
-        } else {
-          streak = 1
-        }
-        lastDate = session
-      }
-      try await db.collection("user").document(userID).updateData(["num_streak_days": streak])
-    } catch {
-      print("failed to update streak days")
-    }
-  }
-  
   func save_login_time(uid: String) async {
     do {
       let sessionId = UUID().uuidString
@@ -175,7 +149,8 @@ class AuthViewModel: ObservableObject {
       try await db.collection("user").document(uid).collection("sessions").document(sessionId).setData([
         "login_date": today
       ])
-      await update_day_streak(userID: uid)
+      await UserDataViewModel().update_day_streak(userID: uid)
+      
     } catch {
       print("failed to save login time")
     }

@@ -74,4 +74,47 @@ class UserDataViewModel: ObservableObject {
     }
   }
   
+  func update_day_streak(userID: String) async {
+    do {
+      let sessionDocs = try await db.collection("user").document(userID).collection("sessions").getDocuments()
+      print("sessionDocs: ", sessionDocs)
+      let sessions = sessionDocs.documents.compactMap { doc -> Date? in
+        let date = doc.data()["login_date"] as? Timestamp
+        return date?.dateValue()
+      }
+      print("sessions: ", sessions)
+      let sortedSessions = sessions.sorted()
+      var streak = 0
+      var lastDate: Date? = nil
+      
+      for session in sortedSessions {
+        if let last = lastDate, Calendar.current.isDate(last, inSameDayAs: session.addingTimeInterval(-86400)) {
+          streak += 1
+        } else {
+          streak = 1
+        }
+        lastDate = session
+      }
+      try await db.collection("user").document(userID).updateData(["num_streak_days": streak])
+    } catch {
+      print("failed to update streak days")
+    }
+  }
+  
+  func update_hours_read(userID: String) async {
+    do {
+      let sessionDocs = try await db.collection("user").document(userID).collection("sessions").getDocuments()
+      var totalHours = 0
+      for session in sessionDocs.documents {
+        if let start = session.data()["login_date"] as? Timestamp, let end = session.data()["logout_date"] as? Timestamp {
+          totalHours += Int(end.dateValue().timeIntervalSince(start.dateValue())) / 3600
+        }
+      }
+      print("total hours: ", totalHours)
+      try await db.collection("user").document(userID).updateData(["num_hours_played": totalHours])
+    } catch {
+      print("failed to update hours read")
+    }
+  }
+  
 }
