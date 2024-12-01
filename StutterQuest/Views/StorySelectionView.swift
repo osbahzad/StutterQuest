@@ -41,6 +41,9 @@ struct StorySelectionView: View {
                                     }
                                     .buttonStyle(PlainButtonStyle())
                                 }
+                                
+                                // Add the locked story card at the end
+                                LockedStoryCardView()
                             }
                         }
                     }
