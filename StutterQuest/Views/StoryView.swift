@@ -9,13 +9,51 @@ struct StoryView: View {
     @State private var selectedWord: String? = nil
     @State private var currentPage = 0
     @State private var spokenText: String = ""
-    @State private var isPaused = false // Tracks if the story is paused
+  
+    @State private var isPaused = false
+    @State private var isStoryCompleted = false
 
     private let pronunciationService = PronunciationService()
 
     let story: Story
 
     var body: some View {
+        ZStack {
+            if isStoryCompleted {
+                StoryCompletedView(
+                    onHome: {
+                        // Go back to home
+                        if let window = UIApplication.shared.windows.first {
+                            window.rootViewController = UIHostingController(rootView: StorySelectionView(nickname: "John"))
+                            window.makeKeyAndVisible()
+                        }
+                    },
+                    onRestart: {
+                        currentPage = 0
+                        isStoryCompleted = false
+                        spokenText = ""
+                        speechRecognizer.transcript = ""
+                    }
+                )
+            } else {
+                storyContent
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                pauseButton
+            }
+        }
+        .navigationBarBackButtonHidden(true) // Hide back button
+        .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $showSheet, onDismiss: {
+            spokenText = speechRecognizer.transcript
+        }) {
+            pronunciationSheet
+        }
+    }
+
+    private var storyContent: some View {
         ZStack {
             if currentPage < story.images.count && currentPage < story.sentences.count {
                 backgroundImage
@@ -47,18 +85,6 @@ struct StoryView: View {
                 pausedOverlay // Display paused page
             }
         }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                pauseButton
-            }
-        }
-        .navigationBarBackButtonHidden(true) // Hide back button
-        .navigationBarTitleDisplayMode(.inline)
-        .sheet(isPresented: $showSheet, onDismiss: {
-            spokenText = speechRecognizer.transcript
-        }) {
-            pronunciationSheet
-        }
     }
 
     private var backgroundImage: some View {
@@ -86,57 +112,61 @@ struct StoryView: View {
             }
         }
     }
-  // Preview Panels
-   private var previewPanels: some View {
-       PreviewPanelView(story: story, currentPage: currentPage) { selectedPage in
-           currentPage = selectedPage
-           spokenText = ""
-           speechRecognizer.transcript = ""
-       }
-       .frame(height: UIScreen.main.bounds.height * 0.25)
-   }
-  
-  private var navigationButtons: some View {
-          HStack {
-              Button(action: {
-                  if currentPage > 0 {
-                      currentPage -= 1
-                      spokenText = ""
-                      speechRecognizer.transcript = ""
-                  }
-              }) {
-                  Image(systemName: "chevron.left.circle.fill")
-                      .resizable()
-                      .frame(width: 50, height: 50)
-                      .foregroundColor(.orange)
-              }
 
-              Spacer()
+    private var previewPanels: some View {
+        PreviewPanelView(story: story, currentPage: currentPage) { selectedPage in
+            currentPage = selectedPage
+            spokenText = ""
+            speechRecognizer.transcript = ""
+        }
+        .frame(height: UIScreen.main.bounds.height * 0.25)
+    }
 
-              Button(action: {
-                  if currentPage < story.sentences.count - 1 {
-                      currentPage += 1
-                      spokenText = ""
-                      speechRecognizer.transcript = ""
-                  }
-              }) {
-                  Image(systemName: "chevron.right.circle.fill")
-                      .resizable()
-                      .frame(width: 50, height: 50)
-                      .foregroundColor(.green)
-              }
-          }
-          .padding(.horizontal)
-          .padding(.top, 10)
-      }
+    private var navigationButtons: some View {
+        HStack {
+            Button(action: {
+                if currentPage > 0 {
+                    currentPage -= 1
+                    spokenText = ""
+                    speechRecognizer.transcript = ""
+                }
+            }) {
+                Image(systemName: "chevron.left.circle.fill")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(.orange)
+            }
+
+            Spacer()
+
+            Button(action: {
+                if currentPage < story.sentences.count - 1 {
+                    currentPage += 1
+                    spokenText = ""
+                    speechRecognizer.transcript = ""
+                } else {
+                    isStoryCompleted = true // Mark story as completed
+                }
+            }) {
+                Image(systemName: "chevron.right.circle.fill")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(.green)
+            }
+        }
+        .padding(.horizontal, 40)
+        .padding(.top, 10)
+    }
 
     private var pauseButton: some View {
         Button(action: {
             isPaused.toggle()
         }) {
             Image(systemName: "pause.circle.fill")
-                .font(.title)
+                .resizable()
+                .frame(width: 40, height: 40)
                 .foregroundColor(.white)
+                .padding(.top)
         }
     }
 
@@ -154,7 +184,6 @@ struct StoryView: View {
                 HStack(spacing: 40) {
                     Button(action: {
                         // Navigate back to home (StorySelectionView)
-                        // Assuming a NavigationStack is used
                         if let window = UIApplication.shared.windows.first {
                             window.rootViewController = UIHostingController(rootView: StorySelectionView(nickname: "John"))
                             window.makeKeyAndVisible()

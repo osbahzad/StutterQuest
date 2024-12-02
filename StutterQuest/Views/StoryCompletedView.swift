@@ -13,6 +13,7 @@ struct StoryCompletedView: View {
 
     var body: some View {
         VStack(spacing: 30) {
+          
             Text("🎉 Story Completed 🎉")
                 .font(.largeTitle)
                 .fontWeight(.bold)
@@ -57,8 +58,22 @@ struct StoryCompletedView: View {
         }
         .padding()
         .background(
-            Color(UIColor.secondarySystemBackground)
-                .edgesIgnoringSafeArea(.all)
+          Image("login_background")
+            .edgesIgnoringSafeArea(.all)
         )
+    }
+}
+
+struct StoryCompletedView_Previews: PreviewProvider {
+    static var previews: some View {
+        StoryCompletedView(
+            onHome: {
+                print("Home button pressed")
+            },
+            onRestart: {
+                print("Restart button pressed")
+            } 
+        )
+        .previewLayout(.device)
     }
 }
