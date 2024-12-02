@@ -31,6 +31,8 @@ class AuthViewModel: ObservableObject {
                         num_stories_read: 0,
                         num_streak_days: 0,
                         num_hours_played: 0,
+                        completed_stories: [],
+                        purchased_stories: [],
                         rank: 0)
       try await db.collection("user").document(uid).setData([
         "user_id": newUser.user_id,
@@ -39,8 +41,8 @@ class AuthViewModel: ObservableObject {
         "num_stories_read": newUser.num_stories_read,
         "num_streak_days": newUser.num_streak_days,
         "num_hours_played": newUser.num_hours_played,
-//        "completed_stories": newUser.completed_stories.map { $0.id.uuidString },
-//        "purchased_stories": newUser.purchased_stories.map { $0.id.uuidString }, s
+        "completed_stories": newUser.completed_stories,
+        "purchased_stories": newUser.purchased_stories,
         "rank": newUser.rank
       ])
       
@@ -80,6 +82,8 @@ class AuthViewModel: ObservableObject {
           num_stories_read: data["num_stories_read"] as? Int ?? 0,
           num_streak_days: data["num_streak_days"] as? Int ?? 0,
           num_hours_played: data["num_hours_played"] as? Int ?? 0,
+          completed_stories: data["completed_stories"] as? [Story] ?? [],
+          purchased_stories: data["purchased_stories"] as? [Story] ?? [],
           rank: data["rank"] as? Int ?? 0
         )
         DispatchQueue.main.async {

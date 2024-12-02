@@ -9,8 +9,8 @@ class User: Identifiable, Codable, ObservableObject {
     var num_stories_read: Int
     var num_streak_days: Int
     var num_hours_played: Int
-//    var completed_stories: [Story]
-//    var purchased_stories: [Story]
+    var completed_stories: [Story]
+    var purchased_stories: [Story]
     var rank: Int
     
     enum CodingKeys: String, CodingKey {
@@ -21,12 +21,12 @@ class User: Identifiable, Codable, ObservableObject {
         case num_stories_read
         case num_streak_days
         case num_hours_played
-//        case completed_stories
-//        case purchased_stories
+        case completed_stories
+        case purchased_stories
         case rank
     }
     
-    init(user_id: String, nickname: String, email: String, password: String, num_stories_read: Int, num_streak_days: Int, num_hours_played: Int, rank: Int) {
+  init(user_id: String, nickname: String, email: String, password: String, num_stories_read: Int, num_streak_days: Int, num_hours_played: Int, completed_stories: [Story], purchased_stories: [Story], rank: Int) {
         self.user_id = user_id
         self.nickname = nickname
         self.email = email
@@ -34,8 +34,8 @@ class User: Identifiable, Codable, ObservableObject {
         self.num_stories_read = num_stories_read
         self.num_streak_days = num_streak_days
         self.num_hours_played = num_hours_played
-//        self.completed_stories = completed_stories
-//        self.purchased_stories = purchased_stories
+        self.completed_stories = completed_stories
+        self.purchased_stories = purchased_stories
         self.rank = rank
     }
 }

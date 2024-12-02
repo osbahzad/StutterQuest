@@ -9,11 +9,11 @@
 import Foundation
 import FirebaseFirestore
 
-struct Story: Identifiable, Decodable {
+struct Story: Identifiable, Codable {
   
   // MARK: Fields
   @DocumentID var id: String?
-  var completed: Bool
+//  var completed: Bool
   var images: [String]
   var pageNum: Int
   var purchasable: Bool
@@ -27,7 +27,7 @@ struct Story: Identifiable, Decodable {
   // MARK: Codable
   enum CodingKeys: String, CodingKey {
     case id = "documentID"
-    case completed
+//    case completed
     case images = "image"
     case pageNum = "page_num"
     case purchasable
