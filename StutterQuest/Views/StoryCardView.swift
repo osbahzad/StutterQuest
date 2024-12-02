@@ -55,17 +55,24 @@ struct StoryCardView: View {
                   .cornerRadius(10)
             }
 
-            Text(story.storyName)
-              .font(.headline)
-              .foregroundColor(.primary)
-              .lineLimit(1)
-              .truncationMode(.tail)
+            HStack {
+                Text(story.storyName)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                    .lineLimit(1)
+                        .truncationMode(.tail)
+
+                // Star icon reflects completion status
+                Image(systemName: story.completed ? "star.fill" : "star")
+                    .foregroundColor(story.completed ? .yellow : .gray)
+              }
 
             Text(story.storyDescription)
-              .font(.subheadline)
-              .foregroundColor(.secondary)
-              .lineLimit(2)
-              .multilineTextAlignment(.leading)
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+                .lineLimit(2)
+                .multilineTextAlignment(.leading) // Ensures left alignment
+                .padding(.horizontal)
         }
         .frame(width: 400, height: 250)
         .background(Color(UIColor.secondarySystemBackground))
