@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseFirestore
 
-struct Story: Identifiable, Decodable {
+struct Story: Identifiable, Codable, Equatable {
   
   // MARK: Fields
   @DocumentID var id: String?
@@ -37,5 +37,10 @@ struct Story: Identifiable, Decodable {
     
     case storyPreviewImage = "story_preview_image"
     case sentences = "text"
+  }
+  
+  static func ==(lhs: Story, rhs: Story) -> Bool {
+    return lhs.id == rhs.id && lhs.storyName == rhs.storyName
+    
   }
 }

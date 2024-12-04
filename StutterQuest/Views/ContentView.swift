@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var authViewModel = AuthViewModel()
+    @ObservedObject var authViewModel = AuthViewModel()
     @State private var signingUp = true
     @State private var email = ""
     @State private var password = ""
@@ -130,6 +130,11 @@ struct ContentView: View {
                 }
             } else {
               NavigationLink(destination: StorySelectionView(nickname: nickname, email:email), isActive: $signed_in) {
+              NavigationLink(destination: SelectNicknameView(nickname: $nickname,email:email, username_saved: username_saved, authViewModel: authViewModel), isActive: .constant(needNickname)) {
+                    EmptyView()
+                }
+            } else {
+                NavigationLink(destination: StorySelectionView(nickname: nickname, email: email), isActive: $signed_in) {
                     EmptyView()
                 }
             }

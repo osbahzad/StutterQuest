@@ -13,6 +13,7 @@ struct StorySelectionView: View {
   @ObservedObject var authViewModel = AuthViewModel()
   var nickname: String
   var email: String
+ 
   var body: some View {
     NavigationView {
       VStack{
@@ -37,6 +38,11 @@ struct StorySelectionView: View {
                     }
                     .buttonStyle(PlainButtonStyle())
                   }
+              ForEach(storyRepository.stories) { story in
+                NavigationLink(
+                  destination: StoryView(authViewModel: AuthViewModel(), story: story, nickname: nickname, email: email)
+                ) {
+                  StoryCardView(story: story, email: email, authViewModel: AuthViewModel())
                 }
               }
               Button(action: {
@@ -75,12 +81,3 @@ struct StorySelectionView: View {
     .navigationBarBackButtonHidden(true)
   }
 }
-  
-  
-  
-
-//struct StorySelectionView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    StorySelectionView(nickname: "John", email: email)
-//  }
-//}
