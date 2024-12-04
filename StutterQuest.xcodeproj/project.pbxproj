@@ -25,6 +25,8 @@
 		0746DD982CD94C9E00BB8F10 /* StoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD972CD94C9E00BB8F10 /* StoryRepository.swift */; };
 		0746DD9C2CD94D6200BB8F10 /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD9B2CD94D6200BB8F10 /* StoryViewModel.swift */; };
 		0746DDA02CD9612500BB8F10 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD9F2CD9612500BB8F10 /* TestView.swift */; };
+		19906EBD2D002AF000E1D4CB /* UserDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19906EBC2D002AF000E1D4CB /* UserDataViewModel.swift */; };
+		19906EBF2D002AF700E1D4CB /* StreaksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19906EBE2D002AF700E1D4CB /* StreaksView.swift */; };
 		19EE7BD52CDC66360078A05B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EE7BD42CDC66360078A05B /* User.swift */; };
 		19EE7BD72CDC66630078A05B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EE7BD62CDC66630078A05B /* AuthViewModel.swift */; };
 		19EE7BDA2CDC66E00078A05B /* CustomToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EE7BD92CDC66E00078A05B /* CustomToggle.swift */; };
@@ -86,6 +88,8 @@
 		0746DD972CD94C9E00BB8F10 /* StoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRepository.swift; sourceTree = "<group>"; };
 		0746DD9B2CD94D6200BB8F10 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
 		0746DD9F2CD9612500BB8F10 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		19906EBC2D002AF000E1D4CB /* UserDataViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDataViewModel.swift; path = ../../../../FINAL/StutterQuest/StutterQuest/ViewModels/UserDataViewModel.swift; sourceTree = "<group>"; };
+		19906EBE2D002AF700E1D4CB /* StreaksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreaksView.swift; path = ../../../../FINAL/StutterQuest/StutterQuest/Views/StreaksView.swift; sourceTree = "<group>"; };
 		19EE7BD42CDC66360078A05B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		19EE7BD62CDC66630078A05B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		19EE7BD92CDC66E00078A05B /* CustomToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggle.swift; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 				0746DD7F2CD5271800BB8F10 /* NavigationBarView.swift */,
 				19EE7BDB2CDC67050078A05B /* ContentView.swift */,
 				0746DD812CD5277700BB8F10 /* StoryCardView.swift */,
+				19906EBE2D002AF700E1D4CB /* StreaksView.swift */,
 				0746DD9F2CD9612500BB8F10 /* TestView.swift */,
 				7C8DBDAB2CDC13330035B50A /* StoryCompletedView.swift */,
 				19EE7BDD2CDC67200078A05B /* SelectNicknameView.swift */,
@@ -246,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				0746DD9B2CD94D6200BB8F10 /* StoryViewModel.swift */,
+				19906EBC2D002AF000E1D4CB /* UserDataViewModel.swift */,
 				19EE7BD62CDC66630078A05B /* AuthViewModel.swift */,
 			);
 			path = ViewModels;
@@ -424,6 +430,7 @@
 				7C8DBDAC2CDC13330035B50A /* StoryCompletedView.swift in Sources */,
 				0746DD982CD94C9E00BB8F10 /* StoryRepository.swift in Sources */,
 				19EE7BE22CDC67440078A05B /* SignUpView.swift in Sources */,
+				19906EBF2D002AF700E1D4CB /* StreaksView.swift in Sources */,
 				19EE7BDE2CDC67200078A05B /* SelectNicknameView.swift in Sources */,
 				0746DD7E2CD439D300BB8F10 /* StorySelectionView.swift in Sources */,
 				0746DD822CD5277700BB8F10 /* StoryCardView.swift in Sources */,
@@ -434,6 +441,7 @@
 				0746DD9C2CD94D6200BB8F10 /* StoryViewModel.swift in Sources */,
 				0746DD802CD5271800BB8F10 /* NavigationBarView.swift in Sources */,
 				0746DD952CD94BF600BB8F10 /* Story.swift in Sources */,
+				19906EBD2D002AF000E1D4CB /* UserDataViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
