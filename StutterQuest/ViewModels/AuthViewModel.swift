@@ -82,8 +82,8 @@ class AuthViewModel: ObservableObject {
           num_stories_read: data["num_stories_read"] as? Int ?? 0,
           num_streak_days: data["num_streak_days"] as? Int ?? 0,
           num_hours_played: data["num_hours_played"] as? Int ?? 0,
-          completed_stories: data["completed_stories"] as? [Story] ?? [],
-          purchased_stories: data["purchased_stories"] as? [Story] ?? [],
+          completed_stories: data["completed_stories"] as? [String] ?? [],
+          purchased_stories: data["purchased_stories"] as? [String] ?? [],
           rank: data["rank"] as? Int ?? 0
         )
         DispatchQueue.main.async {
@@ -128,4 +128,40 @@ class AuthViewModel: ObservableObject {
       return nil
     }
   }
+  
+  func fetch_completed_stories(email: String) async -> [String] {
+    do {
+      let doc = try await db.collection("user").whereField("email", isEqualTo: email).getDocuments()
+      return doc.documents.first?.data()["completed_stories"] as! [String]
+    } catch {
+      print(error)
+      return []
+    }
+  }
+  
+  func update_completed_stories(email: String, story: Story) async {
+    do {
+      let querySnapshot = try await db.collection("user").whereField("email", isEqualTo: email).getDocuments()
+              
+      // Ensure there is at least one document in the query result
+      guard let userDocument = querySnapshot.documents.first else {
+          print("No user found with email: \(email)")
+          return
+      }
+      
+      // Safely extract the user ID
+      guard let user_id = userDocument.data()["user_id"] as? String else {
+          print("User ID is missing or invalid for email: \(email)")
+          return
+      }
+      let storyName = story.storyName
+      // Update the completed stories
+      try await db.collection("user").document(user_id).updateData(["completed_stories": FieldValue.arrayUnion([storyName])])
+              
+    } catch {
+      print("ERROR")
+      print(error)
+    }
+  }
+  
 }

@@ -11,6 +11,7 @@ struct StorySelectionView: View {
   
   @ObservedObject var storyRepository = StoryRepository()
   var nickname: String
+  var email: String
 
   var body: some View {
     NavigationView {
@@ -27,9 +28,9 @@ struct StorySelectionView: View {
               
               ForEach(storyRepository.stories) { story in
                 NavigationLink(
-                  destination: StoryView(story: story)
+                  destination: StoryView(authViewModel: AuthViewModel(), story: story, nickname: nickname, email: email)
                 ) {
-                  StoryCardView(story: story)
+                  StoryCardView(story: story, email: email, authViewModel: AuthViewModel())
                 }
                 .buttonStyle(PlainButtonStyle())
               }
@@ -53,8 +54,3 @@ struct StorySelectionView: View {
   }
 }
  
-struct StorySelectionView_Previews: PreviewProvider {
-  static var previews: some View {
-    StorySelectionView(nickname: "John")
-  }
-}

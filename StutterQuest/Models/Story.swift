@@ -9,11 +9,11 @@
 import Foundation
 import FirebaseFirestore
 
-struct Story: Identifiable, Codable {
+struct Story: Identifiable, Codable, Equatable {
   
   // MARK: Fields
   @DocumentID var id: String?
-//  var completed: Bool
+  var completed: Bool
   var images: [String]
   var pageNum: Int
   var purchasable: Bool
@@ -27,7 +27,7 @@ struct Story: Identifiable, Codable {
   // MARK: Codable
   enum CodingKeys: String, CodingKey {
     case id = "documentID"
-//    case completed
+    case completed
     case images = "image"
     case pageNum = "page_num"
     case purchasable
@@ -37,5 +37,10 @@ struct Story: Identifiable, Codable {
     
     case storyPreviewImage = "story_preview_image"
     case sentences = "text"
+  }
+  
+  static func ==(lhs: Story, rhs: Story) -> Bool {
+    return lhs.id == rhs.id && lhs.storyName == rhs.storyName
+    
   }
 }

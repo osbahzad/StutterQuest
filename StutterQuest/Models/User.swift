@@ -9,8 +9,8 @@ class User: Identifiable, Codable, ObservableObject {
     var num_stories_read: Int
     var num_streak_days: Int
     var num_hours_played: Int
-    var completed_stories: [Story]
-    var purchased_stories: [Story]
+    var completed_stories: [String]
+    var purchased_stories: [String]
     var rank: Int
     
     enum CodingKeys: String, CodingKey {
@@ -26,7 +26,7 @@ class User: Identifiable, Codable, ObservableObject {
         case rank
     }
     
-  init(user_id: String, nickname: String, email: String, password: String, num_stories_read: Int, num_streak_days: Int, num_hours_played: Int, completed_stories: [Story], purchased_stories: [Story], rank: Int) {
+  init(user_id: String, nickname: String, email: String, password: String, num_stories_read: Int, num_streak_days: Int, num_hours_played: Int, completed_stories: [String], purchased_stories: [String], rank: Int) {
         self.user_id = user_id
         self.nickname = nickname
         self.email = email

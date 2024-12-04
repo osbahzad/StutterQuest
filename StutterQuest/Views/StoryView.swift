@@ -12,11 +12,14 @@ struct StoryView: View {
   
     @State private var isPaused = false
     @State private var isStoryCompleted = false
-
+    
+    
     private let pronunciationService = PronunciationService()
-
+    @ObservedObject var authViewModel: AuthViewModel
+  
     let story: Story
-
+    var nickname: String
+    var email: String
     var body: some View {
         ZStack {
             if isStoryCompleted {
@@ -24,7 +27,7 @@ struct StoryView: View {
                     onHome: {
                         // Go back to home
                         if let window = UIApplication.shared.windows.first {
-                            window.rootViewController = UIHostingController(rootView: StorySelectionView(nickname: "John"))
+                            window.rootViewController = UIHostingController(rootView: StorySelectionView(nickname: nickname, email: email))
                             window.makeKeyAndVisible()
                         }
                     },
@@ -146,6 +149,9 @@ struct StoryView: View {
                     speechRecognizer.transcript = ""
                 } else {
                     isStoryCompleted = true // Mark story as completed
+                  Task {
+                    await authViewModel.update_completed_stories(email: email, story: story)
+                  }
                 }
             }) {
                 Image(systemName: "chevron.right.circle.fill")
@@ -185,7 +191,7 @@ struct StoryView: View {
                     Button(action: {
                         // Navigate back to home (StorySelectionView)
                         if let window = UIApplication.shared.windows.first {
-                            window.rootViewController = UIHostingController(rootView: StorySelectionView(nickname: "John"))
+                          window.rootViewController = UIHostingController(rootView: StorySelectionView(nickname: nickname, email: email))
                             window.makeKeyAndVisible()
                         }
                     }) {
@@ -278,13 +284,6 @@ struct StoryView: View {
             audioURL = validURL
             showSheet = true
         }
-    }
-}
-
-struct StoryView_Previews: PreviewProvider {
-    static var previews: some View {
-      StorySelectionView(nickname: "John")
-
     }
 }
 

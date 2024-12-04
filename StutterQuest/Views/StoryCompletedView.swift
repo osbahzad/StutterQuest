@@ -38,6 +38,7 @@ struct StoryCompletedView: View {
                         
                         Text("Home")
                             .foregroundColor(.blue)
+
                     }
                 }
                 
@@ -69,6 +70,7 @@ struct StoryCompletedView_Previews: PreviewProvider {
         StoryCompletedView(
             onHome: {
                 print("Home button pressed")
+                
             },
             onRestart: {
                 print("Restart button pressed")
