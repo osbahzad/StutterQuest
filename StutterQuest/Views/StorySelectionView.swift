@@ -17,10 +17,11 @@ struct StorySelectionView: View {
   var body: some View {
     NavigationView {
       VStack{
+        
         if authViewModel.signedIn{
-          HStack() {
+          HStack {
             VStack(alignment: .leading) {
-              
+              //greeting
               Text("Hi \(nickname.capitalized)!")
                 .font(.system(size: 40, weight: .bold))
                 .padding(.leading)
@@ -37,27 +38,23 @@ struct StorySelectionView: View {
                     }
                     .buttonStyle(PlainButtonStyle())
                   }
-                  ForEach(storyRepository.stories) { story in
-                    NavigationLink(
-                      destination: StoryView(authViewModel: authViewModel, story: story, nickname: nickname, email: email)
-                    ) {
-                      StoryCardView(story: story, email: email, authViewModel: authViewModel)
-                    }
-                  }
-                  Button(action: {
-                    Task {
-                      
-                      await authViewModel.logout(email: email)
-                    }
-                  }) {
-                    Text("Logout")
-                      .foregroundColor(.white)
-                      .padding()
-                      .background(Color.red)
-                      .cornerRadius(8)
-                  }
-                  .padding(.top, 20)
                 }
+              }
+              Button(action: {
+                Task {
+                  
+                  await authViewModel.logout(email: email)
+                }
+              }) {
+                Text("Logout")
+                  .foregroundColor(.white)
+                  .padding()
+                  .background(Color.green)
+                  .cornerRadius(8)
+              }
+              .padding(.top, 20)
+            }
+              
                 .padding()
                 
                 NavigationBarView(email: email, nickname: nickname)
@@ -65,13 +62,14 @@ struct StorySelectionView: View {
               }
               
               .padding(.top, 20)
-              
               .background(
-                Image("login_background")
-                  .edgesIgnoringSafeArea(.all)
-              )
-            }
-          }
+                          Image("login_background")
+                            .edgesIgnoringSafeArea(.all)
+                        )
+              
+            
+            
+          
         } else {
           NavigationLink(destination: ContentView(), isActive: .constant(true)) {
             EmptyView()
