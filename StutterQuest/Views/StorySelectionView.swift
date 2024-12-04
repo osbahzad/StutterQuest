@@ -13,12 +13,11 @@ struct StorySelectionView: View {
   @ObservedObject var authViewModel = AuthViewModel()
   var nickname: String
   var email: String
- 
+  
   var body: some View {
     NavigationView {
       VStack{
         if authViewModel.signedIn{
-          
           HStack() {
             VStack(alignment: .leading) {
               
@@ -32,52 +31,55 @@ struct StorySelectionView: View {
                   
                   ForEach(storyRepository.stories) { story in
                     NavigationLink(
-                      destination: StoryView(story: story)
+                      destination: StoryView(authViewModel: authViewModel, story: story, nickname: nickname, email: email)
                     ) {
-                      StoryCardView(story: story)
+                      StoryCardView(story: story, email: email, authViewModel: authViewModel)
                     }
                     .buttonStyle(PlainButtonStyle())
                   }
-              ForEach(storyRepository.stories) { story in
-                NavigationLink(
-                  destination: StoryView(authViewModel: AuthViewModel(), story: story, nickname: nickname, email: email)
-                ) {
-                  StoryCardView(story: story, email: email, authViewModel: AuthViewModel())
+                  ForEach(storyRepository.stories) { story in
+                    NavigationLink(
+                      destination: StoryView(authViewModel: authViewModel, story: story, nickname: nickname, email: email)
+                    ) {
+                      StoryCardView(story: story, email: email, authViewModel: authViewModel)
+                    }
+                  }
+                  Button(action: {
+                    Task {
+                      
+                      await authViewModel.logout(email: email)
+                    }
+                  }) {
+                    Text("Logout")
+                      .foregroundColor(.white)
+                      .padding()
+                      .background(Color.red)
+                      .cornerRadius(8)
+                  }
+                  .padding(.top, 20)
                 }
+                .padding()
+                
+                NavigationBarView(email: email, nickname: nickname)
+                  .frame(width: 70)
               }
-              Button(action: {
-                Task {
-                  
-                  await authViewModel.logout(email: email)
-                }
-              }) {
-                Text("Logout")
-                  .foregroundColor(.white)
-                  .padding()
-                  .background(Color.red)
-                  .cornerRadius(8)
-              }
+              
               .padding(.top, 20)
+              
+              .background(
+                Image("login_background")
+                  .edgesIgnoringSafeArea(.all)
+              )
             }
-            .padding()
-            
-            NavigationBarView(email: email, nickname: nickname)
-              .frame(width: 70)
           }
-          
-          .padding(.top, 20)
-          
-          .background(
-            Image("login_background")
-              .edgesIgnoringSafeArea(.all)
-          )
         } else {
-            NavigationLink(destination: ContentView(), isActive: .constant(true)) {
-                EmptyView()
-            }
+          NavigationLink(destination: ContentView(), isActive: .constant(true)) {
+            EmptyView()
           }
         }
+        
       }
+    }
     .navigationBarBackButtonHidden(true)
   }
 }

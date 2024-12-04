@@ -12,8 +12,6 @@ struct SelectNicknameView: View {
   @Binding var nickname: String
   var email: String
   @State var username_saved: Bool
-  @ObservedObject var authViewModel: AuthViewModel
-  var email: String
   var authViewModel: AuthViewModel
     var body: some View {
       ZStack {

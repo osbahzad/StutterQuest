@@ -196,27 +196,27 @@ class AuthViewModel: ObservableObject {
   func update_completed_stories(email: String, story: Story) async {
     do {
       let querySnapshot = try await db.collection("user").whereField("email", isEqualTo: email).getDocuments()
-              
-      // Ensure there is at least one document in the query result
       guard let userDocument = querySnapshot.documents.first else {
           print("No user found with email: \(email)")
           return
       }
-      
-      // Safely extract the user ID
       guard let user_id = userDocument.data()["user_id"] as? String else {
           print("User ID is missing or invalid for email: \(email)")
           return
       }
-      let storyName = story.storyName
-      // Update the completed stories
-      try await db.collection("user").document(user_id).updateData(["completed_stories": FieldValue.arrayUnion([storyName])])
-              
+      try await db.collection("user").document(user_id).updateData(["completed_stories": FieldValue.arrayUnion([story.storyName])])
+      
+      let updatedUserDoc = try await db.collection("user").document(user_id).getDocument()
+      if let completedStories = updatedUserDoc["completed_stories"] as? [String] {
+        let numCompletedBooks = completedStories.count
+        try await db.collection("user").document(user_id).updateData(["num_stories_read": numCompletedBooks])
+      }
     } catch {
       print("ERROR")
       print(error)
     }
   }
+  
   
 }
 
