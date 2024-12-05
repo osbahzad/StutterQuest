@@ -15,6 +15,8 @@ import Combine
 class AuthViewModel: ObservableObject {
   @Published var user: User?
   @Published var errorMessage: String?
+  @Published var currentSession: String?
+  @Published var signedIn: Bool = true
   
   private var db = Firestore.firestore()
   
@@ -31,6 +33,8 @@ class AuthViewModel: ObservableObject {
                         num_stories_read: 0,
                         num_streak_days: 0,
                         num_hours_played: 0,
+                        completed_stories: [],
+                        purchased_stories: [],
                         rank: 0)
       try await db.collection("user").document(uid).setData([
         "user_id": newUser.user_id,
@@ -39,10 +43,12 @@ class AuthViewModel: ObservableObject {
         "num_stories_read": newUser.num_stories_read,
         "num_streak_days": newUser.num_streak_days,
         "num_hours_played": newUser.num_hours_played,
-//        "completed_stories": newUser.completed_stories.map { $0.id.uuidString },
-//        "purchased_stories": newUser.purchased_stories.map { $0.id.uuidString }, s
+        "completed_stories": newUser.completed_stories,
+        "purchased_stories": newUser.purchased_stories,
         "rank": newUser.rank
       ])
+      
+      await save_login_time(uid: uid)
       
       DispatchQueue.main.async {
         self.user = newUser
@@ -70,6 +76,9 @@ class AuthViewModel: ObservableObject {
       print("attempting to sign in with email: \(email) and password: \(password)")
       let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
       let user_id = authResult.user.uid
+      
+      await save_login_time(uid: user_id)
+      
       let document = try await db.collection("user").document(user_id).getDocument()
       if let data = document.data() {
         let fetchedUser = User(
@@ -80,10 +89,14 @@ class AuthViewModel: ObservableObject {
           num_stories_read: data["num_stories_read"] as? Int ?? 0,
           num_streak_days: data["num_streak_days"] as? Int ?? 0,
           num_hours_played: data["num_hours_played"] as? Int ?? 0,
+          completed_stories: data["completed_stories"] as? [String] ?? [],
+          purchased_stories: data["purchased_stories"] as? [String] ?? [],
           rank: data["rank"] as? Int ?? 0
         )
         DispatchQueue.main.async {
-            self.user = fetchedUser
+          self.user = fetchedUser
+//          self.currentSession = sessionId
+          print("current session: ", self.currentSession ?? "")
         }
       }
       print("user has signed in with email: \(email)")
@@ -101,6 +114,24 @@ class AuthViewModel: ObservableObject {
     }
   }
   
+  func logout(email: String) async {
+    do {
+      let user_id = try await db.collection("user").whereField("email", isEqualTo: email).getDocuments().documents.first?.data()["user_id"] as? String
+      let currentSession = (await find_most_recent_login(uid: user_id!))!
+      try await db.collection("user").document(user_id!).collection("sessions").document(currentSession).updateData(["logout_date": Date()])
+      await UserDataViewModel().update_hours_read(userID: user_id!)
+      try Auth.auth().signOut()
+      DispatchQueue.main.async {
+        self.user = nil
+        self.currentSession = nil
+        self.signedIn = false
+        print("user has signed out")
+      }
+    } catch {
+      print("failed to sign out")
+    }
+  }
+  
   func save_nickname(userID: String, nickname: String) async {
     do {
       try await db.collection("user").document(userID).updateData(["nickname": nickname])
@@ -114,14 +145,79 @@ class AuthViewModel: ObservableObject {
     }
   }
   
-  func fetch_nickname(email: String) async -> String?{
+  func save_login_time(uid: String) async {
     do {
-      let doc = try await db.collection("user").whereField("email", isEqualTo: email).getDocuments()
-      print(doc)
-      return doc.documents.first?.data()["nickname"] as? String
+      let sessionId = UUID().uuidString
+      let today = Date()
+      
+      try await db.collection("user").document(uid).collection("sessions").document(sessionId).setData([
+        "login_date": today
+      ])
+      await UserDataViewModel().update_day_streak(userID: uid)
+      
     } catch {
-      print(error)
-      return nil
+      print("failed to save login time")
     }
   }
+  
+  func find_most_recent_login(uid: String) async -> String? {
+    do {
+      let sessions = try await db.collection("user").document(uid).collection("sessions").getDocuments()
+      var mostRecentSession: String?
+      var mostRecentDate: Date?
+        
+      for session in sessions.documents {
+        if let date = session.data()["login_date"] as? Timestamp {
+          let loginDate = date.dateValue()
+          if mostRecentDate == nil || loginDate > mostRecentDate! {
+            mostRecentDate = loginDate
+            mostRecentSession = session.documentID
+          }
+        }
+      }
+          return mostRecentSession
+    } catch {
+      
+      print("failed to find most recent login")
+      return nil
+    }
+
+  }
+  func fetch_completed_stories(email: String) async -> [String] {
+    do {
+      let doc = try await db.collection("user").whereField("email", isEqualTo: email).getDocuments()
+      return doc.documents.first?.data()["completed_stories"] as! [String]
+    } catch {
+      print(error)
+      return []
+    }
+  }
+  
+  func update_completed_stories(email: String, story: Story) async {
+    do {
+      let querySnapshot = try await db.collection("user").whereField("email", isEqualTo: email).getDocuments()
+      guard let userDocument = querySnapshot.documents.first else {
+          print("No user found with email: \(email)")
+          return
+      }
+      guard let user_id = userDocument.data()["user_id"] as? String else {
+          print("User ID is missing or invalid for email: \(email)")
+          return
+      }
+      try await db.collection("user").document(user_id).updateData(["completed_stories": FieldValue.arrayUnion([story.storyName])])
+      
+      let updatedUserDoc = try await db.collection("user").document(user_id).getDocument()
+      if let completedStories = updatedUserDoc["completed_stories"] as? [String] {
+        let numCompletedBooks = completedStories.count
+        try await db.collection("user").document(user_id).updateData(["num_stories_read": numCompletedBooks])
+      }
+    } catch {
+      print("ERROR")
+      print(error)
+    }
+  }
+  
+  
 }
+
+

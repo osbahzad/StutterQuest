@@ -26,12 +26,6 @@
 		0746DD9C2CD94D6200BB8F10 /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD9B2CD94D6200BB8F10 /* StoryViewModel.swift */; };
 		0746DDA02CD9612500BB8F10 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DD9F2CD9612500BB8F10 /* TestView.swift */; };
 		0746DEC32CEEAD2F00BB8F10 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DEC22CEEAD2F00BB8F10 /* TutorialView.swift */; };
-		0746DECD2CEEAF4100BB8F10 /* 5.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0746DEC72CEEAF4100BB8F10 /* 5.mov */; };
-		0746DECE2CEEAF4100BB8F10 /* 6.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0746DEC82CEEAF4100BB8F10 /* 6.mov */; };
-		0746DECF2CEEAF4100BB8F10 /* 2.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0746DEC92CEEAF4100BB8F10 /* 2.mov */; };
-		0746DED02CEEAF4100BB8F10 /* 4.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0746DECA2CEEAF4100BB8F10 /* 4.mov */; };
-		0746DED12CEEAF4100BB8F10 /* 3.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0746DECB2CEEAF4100BB8F10 /* 3.mov */; };
-		0746DED22CEEAF4100BB8F10 /* 1.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0746DECC2CEEAF4100BB8F10 /* 1.mov */; };
 		0746DED52CEECC0300BB8F10 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0746DED42CEECC0300BB8F10 /* FirebaseAnalytics */; };
 		0746DED72CEECC0300BB8F10 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0746DED62CEECC0300BB8F10 /* FirebaseAuth */; };
 		0746DED92CEECC0300BB8F10 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0746DED82CEECC0300BB8F10 /* FirebaseAuthCombine-Community */; };
@@ -43,6 +37,15 @@
 		0746DEE52CEECC0300BB8F10 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0746DEE42CEECC0300BB8F10 /* FirebaseStorage */; };
 		0746DEE72CEECC0300BB8F10 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0746DEE62CEECC0300BB8F10 /* FirebaseStorageCombine-Community */; };
 		0746DEE92CF52EA400BB8F10 /* LockedStoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746DEE82CF52EA400BB8F10 /* LockedStoryCardView.swift */; };
+		1908EBC62D011E19000DB274 /* 2.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1908EBC02D011E18000DB274 /* 2.mov */; };
+		1908EBC72D011E19000DB274 /* 4.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1908EBC12D011E19000DB274 /* 4.mov */; };
+		1908EBC82D011E19000DB274 /* 6.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1908EBC22D011E19000DB274 /* 6.mov */; };
+		1908EBC92D011E19000DB274 /* 3.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1908EBC32D011E19000DB274 /* 3.mov */; };
+		1908EBCA2D011E19000DB274 /* 5.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1908EBC42D011E19000DB274 /* 5.mov */; };
+		1908EBCB2D011E19000DB274 /* 1.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1908EBC52D011E19000DB274 /* 1.mov */; };
+		1908EBCD2D011E84000DB274 /* PreviewPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1908EBCC2D011E84000DB274 /* PreviewPanelView.swift */; };
+		1908EBCF2D011FAC000DB274 /* UserDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1908EBCE2D011FAC000DB274 /* UserDataViewModel.swift */; };
+		1908EBD12D012019000DB274 /* StreaksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1908EBD02D012019000DB274 /* StreaksView.swift */; };
 		19EE7BD52CDC66360078A05B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EE7BD42CDC66360078A05B /* User.swift */; };
 		19EE7BD72CDC66630078A05B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EE7BD62CDC66630078A05B /* AuthViewModel.swift */; };
 		19EE7BDA2CDC66E00078A05B /* CustomToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EE7BD92CDC66E00078A05B /* CustomToggle.swift */; };
@@ -105,13 +108,16 @@
 		0746DD9B2CD94D6200BB8F10 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
 		0746DD9F2CD9612500BB8F10 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		0746DEC22CEEAD2F00BB8F10 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
-		0746DEC72CEEAF4100BB8F10 /* 5.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 5.mov; path = ../../../../../../../../../5.mov; sourceTree = "<group>"; };
-		0746DEC82CEEAF4100BB8F10 /* 6.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 6.mov; path = ../../../../../../../../../6.mov; sourceTree = "<group>"; };
-		0746DEC92CEEAF4100BB8F10 /* 2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 2.mov; path = ../../../../../../../../../2.mov; sourceTree = "<group>"; };
-		0746DECA2CEEAF4100BB8F10 /* 4.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 4.mov; path = ../../../../../../../../../4.mov; sourceTree = "<group>"; };
-		0746DECB2CEEAF4100BB8F10 /* 3.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 3.mov; path = ../../../../../../../../../3.mov; sourceTree = "<group>"; };
-		0746DECC2CEEAF4100BB8F10 /* 1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 1.mov; path = ../../../../../../../../../1.mov; sourceTree = "<group>"; };
 		0746DEE82CF52EA400BB8F10 /* LockedStoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedStoryCardView.swift; sourceTree = "<group>"; };
+		1908EBC02D011E18000DB274 /* 2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 2.mov; path = StutterQuest/Tutorial/2.mov; sourceTree = SOURCE_ROOT; };
+		1908EBC12D011E19000DB274 /* 4.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 4.mov; path = StutterQuest/Tutorial/4.mov; sourceTree = SOURCE_ROOT; };
+		1908EBC22D011E19000DB274 /* 6.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 6.mov; path = StutterQuest/Tutorial/6.mov; sourceTree = SOURCE_ROOT; };
+		1908EBC32D011E19000DB274 /* 3.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 3.mov; path = StutterQuest/Tutorial/3.mov; sourceTree = SOURCE_ROOT; };
+		1908EBC42D011E19000DB274 /* 5.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 5.mov; path = StutterQuest/Tutorial/5.mov; sourceTree = SOURCE_ROOT; };
+		1908EBC52D011E19000DB274 /* 1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 1.mov; path = StutterQuest/Tutorial/1.mov; sourceTree = SOURCE_ROOT; };
+		1908EBCC2D011E84000DB274 /* PreviewPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPanelView.swift; sourceTree = "<group>"; };
+		1908EBCE2D011FAC000DB274 /* UserDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewModel.swift; sourceTree = "<group>"; };
+		1908EBD02D012019000DB274 /* StreaksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreaksView.swift; sourceTree = "<group>"; };
 		19EE7BD42CDC66360078A05B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		19EE7BD62CDC66630078A05B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		19EE7BD92CDC66E00078A05B /* CustomToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggle.swift; sourceTree = "<group>"; };
@@ -250,6 +256,8 @@
 				7C8DBDAF2CDD0A900035B50A /* LoadingView.swift */,
 				0746DEC22CEEAD2F00BB8F10 /* TutorialView.swift */,
 				0746DEE82CF52EA400BB8F10 /* LockedStoryCardView.swift */,
+				1908EBCC2D011E84000DB274 /* PreviewPanelView.swift */,
+				1908EBD02D012019000DB274 /* StreaksView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +294,7 @@
 			children = (
 				0746DD9B2CD94D6200BB8F10 /* StoryViewModel.swift */,
 				19EE7BD62CDC66630078A05B /* AuthViewModel.swift */,
+				1908EBCE2D011FAC000DB274 /* UserDataViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -300,12 +309,12 @@
 		0746DEC62CEEAF2300BB8F10 /* TutorialVideos */ = {
 			isa = PBXGroup;
 			children = (
-				0746DECC2CEEAF4100BB8F10 /* 1.mov */,
-				0746DEC92CEEAF4100BB8F10 /* 2.mov */,
-				0746DECB2CEEAF4100BB8F10 /* 3.mov */,
-				0746DECA2CEEAF4100BB8F10 /* 4.mov */,
-				0746DEC72CEEAF4100BB8F10 /* 5.mov */,
-				0746DEC82CEEAF4100BB8F10 /* 6.mov */,
+				1908EBC52D011E19000DB274 /* 1.mov */,
+				1908EBC02D011E18000DB274 /* 2.mov */,
+				1908EBC32D011E19000DB274 /* 3.mov */,
+				1908EBC12D011E19000DB274 /* 4.mov */,
+				1908EBC42D011E19000DB274 /* 5.mov */,
+				1908EBC22D011E19000DB274 /* 6.mov */,
 			);
 			path = TutorialVideos;
 			sourceTree = "<group>";
@@ -447,15 +456,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0746DED12CEEAF4100BB8F10 /* 3.mov in Resources */,
 				0746DD432CD0365B00BB8F10 /* Preview Assets.xcassets in Resources */,
 				19EE7BE42CDC67D10078A05B /* GoogleService-Info.plist in Resources */,
-				0746DED22CEEAF4100BB8F10 /* 1.mov in Resources */,
-				0746DECD2CEEAF4100BB8F10 /* 5.mov in Resources */,
-				0746DECF2CEEAF4100BB8F10 /* 2.mov in Resources */,
+				1908EBCA2D011E19000DB274 /* 5.mov in Resources */,
+				1908EBCB2D011E19000DB274 /* 1.mov in Resources */,
 				0746DD402CD0365B00BB8F10 /* Assets.xcassets in Resources */,
-				0746DECE2CEEAF4100BB8F10 /* 6.mov in Resources */,
-				0746DED02CEEAF4100BB8F10 /* 4.mov in Resources */,
+				1908EBC92D011E19000DB274 /* 3.mov in Resources */,
+				1908EBC82D011E19000DB274 /* 6.mov in Resources */,
+				1908EBC72D011E19000DB274 /* 4.mov in Resources */,
+				1908EBC62D011E19000DB274 /* 2.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +492,7 @@
 				0746DDA02CD9612500BB8F10 /* TestView.swift in Sources */,
 				0746DD722CD2E5C800BB8F10 /* StoryView.swift in Sources */,
 				0746DD742CD2E5F000BB8F10 /* SpeechRecognizer.swift in Sources */,
+				1908EBD12D012019000DB274 /* StreaksView.swift in Sources */,
 				7C8DBDB02CDD0A900035B50A /* LoadingView.swift in Sources */,
 				0746DD762CD2E61300BB8F10 /* TextComparison.swift in Sources */,
 				19EE7BD52CDC66360078A05B /* User.swift in Sources */,
@@ -498,8 +508,10 @@
 				0746DD822CD5277700BB8F10 /* StoryCardView.swift in Sources */,
 				19EE7BDA2CDC66E00078A05B /* CustomToggle.swift in Sources */,
 				19EE7BE02CDC67340078A05B /* SignInView.swift in Sources */,
+				1908EBCD2D011E84000DB274 /* PreviewPanelView.swift in Sources */,
 				0746DD3C2CD0365900BB8F10 /* StutterQuestApp.swift in Sources */,
 				0746DD7C2CD2F2FF00BB8F10 /* WebView.swift in Sources */,
+				1908EBCF2D011FAC000DB274 /* UserDataViewModel.swift in Sources */,
 				0746DEE92CF52EA400BB8F10 /* LockedStoryCardView.swift in Sources */,
 				0746DD9C2CD94D6200BB8F10 /* StoryViewModel.swift in Sources */,
 				0746DD802CD5271800BB8F10 /* NavigationBarView.swift in Sources */,
@@ -667,7 +679,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StutterQuest/Preview Content\"";
-				DEVELOPMENT_TEAM = 3D6A94MSKG;
+				DEVELOPMENT_TEAM = U8ACFK84CY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StutterQuest/Info.plist;
@@ -698,7 +710,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StutterQuest/Preview Content\"";
-				DEVELOPMENT_TEAM = 3D6A94MSKG;
+				DEVELOPMENT_TEAM = U8ACFK84CY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StutterQuest/Info.plist;
