@@ -7,31 +7,73 @@
 
 import SwiftUI
 
-struct StoryCompletedView: View { 
+struct StoryCompletedView: View {
+    var onHome: () -> Void
+    var onRestart: () -> Void
 
     var body: some View {
-        VStack(spacing: 20) {
-            VStack(spacing: 10) {
-                Image(systemName: "star.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 80, height: 80)
-                    .foregroundColor(.yellow)
+        VStack(spacing: 30) {
+          
+            Text("🎉 Story Completed 🎉")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.orange)
+            
+            Text("Great job finishing the story!")
+                .font(.title3)
+                .foregroundColor(.gray)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+            
+            HStack(spacing: 40) {
+                Button(action: onHome) {
+                    VStack {
+                        Image(systemName: "house.fill")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.blue)
+                            .clipShape(Circle())
+                        
+                        Text("Home")
+                            .foregroundColor(.blue)
+                    }
+                }
                 
-                Text("Story Completed!")
-                    .font(.largeTitle)
-                    .fontWeight(.heavy)
-                    .foregroundColor(.purple)
-                
-                Text("Thank you for reading!")
-                    .font(.title3)
-                    .foregroundColor(.secondary)
+                Button(action: onRestart) {
+                    VStack {
+                        Image(systemName: "arrow.counterclockwise")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.green)
+                            .clipShape(Circle())
+                        
+                        Text("Restart")
+                            .foregroundColor(.green)
+                    }
+                }
             }
-            .padding() 
         }
         .padding()
-        .background(Color.blue.opacity(0.1))
-        .cornerRadius(20)
-        .padding()
+        .background(
+          Image("login_background")
+            .edgesIgnoringSafeArea(.all)
+        )
+    }
+}
+
+struct StoryCompletedView_Previews: PreviewProvider {
+    static var previews: some View {
+        StoryCompletedView(
+            onHome: {
+                print("Home button pressed")
+            },
+            onRestart: {
+                print("Restart button pressed")
+            } 
+        )
+        .previewLayout(.device)
     }
 }

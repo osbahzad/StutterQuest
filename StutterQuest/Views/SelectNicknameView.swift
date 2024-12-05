@@ -10,8 +10,9 @@ import SwiftUI
 
 struct SelectNicknameView: View {
   @Binding var nickname: String
+  var email: String
   @State var username_saved: Bool
-  @ObservedObject var authViewModel: AuthViewModel
+  var authViewModel: AuthViewModel
     var body: some View {
       ZStack {
         Image("nickname_background")
@@ -51,7 +52,7 @@ struct SelectNicknameView: View {
         .navigationBarBackButtonHidden(true)
         .padding()
         .background(
-          NavigationLink(destination: StorySelectionView(nickname:nickname), isActive: $username_saved) {
+          NavigationLink(destination: StorySelectionView(nickname:nickname, email: email), isActive: $username_saved) {
             EmptyView()
           })
       }
