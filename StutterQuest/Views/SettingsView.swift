@@ -3,12 +3,12 @@
 //  StutterQuest
 //
 //  Created by Omar Bahzad on 12/6/24.
-// Some hepl with AI
-
+// Some help with AI
 import SwiftUI
 
 struct SettingsView: View {
     @State private var isMuted = false // State to track mute/unmute
+    @Environment(\.dismiss) var dismiss // Add this to allow dismissal of the sheet
 
     var body: some View {
         ZStack {
@@ -19,6 +19,19 @@ struct SettingsView: View {
                 .edgesIgnoringSafeArea(.all)
 
             VStack(spacing: 20) {
+                HStack {
+                    Spacer()
+                    // Close button to dismiss the sheet
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                            .padding()
+                    }
+                }
+                
                 Text("Settings")
                     .font(.largeTitle)
                     .fontWeight(.bold)
@@ -44,5 +57,3 @@ struct SettingsView: View {
         }
     }
 }
-
-

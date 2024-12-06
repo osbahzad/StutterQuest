@@ -4,7 +4,7 @@
 //
 //  Created by Omar Bahzad on 10/28/24.
 //  Some help with AI
-
+//
 
 import SwiftUI
 import Firebase
@@ -15,6 +15,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         FirebaseApp.configure()
+        BackgroundMusicPlayer.shared.playMusic(filename: "background_music") // Moved here from ContentView
         return true
     }
     
@@ -36,16 +37,7 @@ struct StutterQuestApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onAppear {
-                    // Start background music when the app launches
-                    BackgroundMusicPlayer.shared.playMusic(filename: "background_music")
-                }
-                .onDisappear {
-                    // Stop music when ContentView disappears
-                    BackgroundMusicPlayer.shared.stopMusic()
-                }
+            // Removed onAppear and onDisappear blocks for music here
         }
     }
 }
-
-
