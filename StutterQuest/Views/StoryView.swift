@@ -212,6 +212,10 @@ struct StoryView: View {
 
                     Button(action: {
                         // Placeholder for settings
+                        NavigationLink(destination: SettingsView()) {
+                            NavigationButton(iconName: "gearshape.fill", label: "Settings")
+                        }
+
                     }) {
                         Image(systemName: "gearshape.fill")
                             .font(.largeTitle)
