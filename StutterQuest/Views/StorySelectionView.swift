@@ -91,7 +91,7 @@ struct StorySelectionView: View {
                         .background(Color.white.opacity(0.8))
                         .clipShape(Circle())
                         .shadow(radius: 5)
-                        .padding(.trailing, 80) // Adjusted padding to move it left
+                        .padding(.trailing, 200) // Adjusted padding to move it left
                     }
                     Spacer()
                 }

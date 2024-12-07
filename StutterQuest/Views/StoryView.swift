@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 struct StoryView: View {
@@ -10,17 +9,17 @@ struct StoryView: View {
     @State private var selectedWord: String? = nil
     @State private var currentPage = 0
     @State private var spokenText: String = ""
-  
     @State private var isPaused = false
     @State private var isStoryCompleted = false
-    
-    
+    @State private var showSettings = false // Added for settings sheet
+
     private let pronunciationService = PronunciationService()
     @ObservedObject var authViewModel: AuthViewModel
-  
+
     let story: Story
     var nickname: String
     var email: String
+
     var body: some View {
         ZStack {
             if isStoryCompleted {
@@ -86,7 +85,7 @@ struct StoryView: View {
             navigationButtons
 
             if isPaused {
-                pausedOverlay // Display paused page
+                pausedOverlay
             }
         }
     }
@@ -150,9 +149,9 @@ struct StoryView: View {
                     speechRecognizer.transcript = ""
                 } else {
                     isStoryCompleted = true // Mark story as completed
-                  Task {
-                    await authViewModel.update_completed_stories(email: email, story: story)
-                  }
+                    Task {
+                        await authViewModel.update_completed_stories(email: email, story: story)
+                    }
                 }
             }) {
                 Image(systemName: "chevron.right.circle.fill")
@@ -211,7 +210,8 @@ struct StoryView: View {
                     }
 
                     Button(action: {
-                        // Placeholder for settings
+                        // Show settings view
+                        showSettings = true
                     }) {
                         Image(systemName: "gearshape.fill")
                             .font(.largeTitle)
@@ -219,6 +219,9 @@ struct StoryView: View {
                     }
                 }
             }
+        }
+        .sheet(isPresented: $showSettings) {
+            SettingsView()
         }
     }
 

@@ -3,41 +3,42 @@ import SwiftUI
 struct NavigationBarView: View {
     var email: String
     var nickname: String
+
     var body: some View {
-        GeometryReader { geometry in
-            HStack {
-                Spacer()
-                
-                VStack(spacing: 30) {
-                    NavigationLink(destination: StorySelectionView(nickname: nickname, email: email)) {
-                      NavigationButton(iconName: "house.fill", label: "Home")
-                    }
-                    NavigationButton(iconName: "list.number", label: "Leaderboard")
-                    NavigationLink(destination: StreaksView(email: email, nickname: nickname)) {
-                      NavigationButton(iconName: "flame.fill", label: "Streaks")
-                    }
-                    NavigationButton(iconName: "gearshape.fill", label: "Settings")
-                }
-                .padding(10)
-                .background(
-                    Color(UIColor.secondarySystemBackground)
-                        .cornerRadius(15)
-                        .shadow(radius: 3)
-                )
-                .frame(maxHeight: .infinity) // Ensure the VStack takes all available space
-                .padding(.trailing, 20)
-                .position(x: geometry.size.width - 20, // Adjust horizontal position
-                          y: geometry.size.height / 2) // Vertically center the VStack
+        VStack(spacing: 30) {
+            // Navigation to Home
+            NavigationLink(destination: StorySelectionView(nickname: nickname, email: email)) {
+                NavigationButton(iconName: "house.fill", label: "Home")
             }
-            .edgesIgnoringSafeArea(.trailing)
+            
+            // Navigation to Leaderboard (Placeholder action)
+            NavigationButton(iconName: "list.number", label: "Leaderboard")
+            
+            // Navigation to Streaks
+            NavigationLink(destination: StreaksView(email: email, nickname: nickname)) {
+                NavigationButton(iconName: "flame.fill", label: "Streaks")
+            }
+            
+            // Navigation to Settings
+            NavigationLink(destination: SettingsView()) {
+                NavigationButton(iconName: "gearshape.fill", label: "Settings")
+            }
         }
+        .padding(10)
+        .background(
+            Color(UIColor.secondarySystemBackground)
+                .cornerRadius(15)
+                .shadow(radius: 3)
+        )
+        .frame(maxHeight: .infinity, alignment: .center) // Vertically center the navigation
+        .padding(.trailing, 20)
     }
 }
 
 struct NavigationButton: View {
     var iconName: String
     var label: String
-    
+
     var body: some View {
         VStack(spacing: 5) {
             Image(systemName: iconName)
@@ -54,9 +55,3 @@ struct NavigationButton: View {
 }
 
 
-//struct NavigationBarView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NavigationBarView()
-//            .frame(width: 100, height: 600) // Simulate screen height for preview
-//    }
-//}
