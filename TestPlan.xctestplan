@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "2FC96149-F538-40F8-A250-B2A939874B6C",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:StutterQuest.xcodeproj",
+        "identifier" : "0746DD472CD0365B00BB8F10",
+        "name" : "StutterQuestTests"
+      }
+    }
+  ],
+  "version" : 1
+}
