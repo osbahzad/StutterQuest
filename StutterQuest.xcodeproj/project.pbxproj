@@ -43,7 +43,6 @@
 		1908EBDB2D024C48000DB274 /* UserModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1908EBDA2D024C48000DB274 /* UserModelTest.swift */; };
 		1908EBDE2D024E8E000DB274 /* StoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1908EBDD2D024E8E000DB274 /* StoryViewModelTests.swift */; };
 		1908EBE02D024FC6000DB274 /* AuthViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1908EBDF2D024FC6000DB274 /* AuthViewModelTest.swift */; };
-		1908EBE22D036BA8000DB274 /* background_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1908EBE12D036BA7000DB274 /* background_music.mp3 */; };
 		1908EBE42D03CCB0000DB274 /* UserDataViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1908EBE32D03CCB0000DB274 /* UserDataViewModelTest.swift */; };
 		1908EBE72D03E0D9000DB274 /* StoryRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1908EBE62D03E0D9000DB274 /* StoryRepositoryTest.swift */; };
 		19EE7BD52CDC66360078A05B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EE7BD42CDC66360078A05B /* User.swift */; };
@@ -64,7 +63,7 @@
 		19EE7C8D2CDD35340078A05B /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 19EE7C8C2CDD35340078A05B /* FirebaseFirestoreCombine-Community */; };
 		19EE7C8F2CDD35340078A05B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 19EE7C8E2CDD35340078A05B /* FirebaseStorage */; };
 		19EE7C912CDD35340078A05B /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 19EE7C902CDD35340078A05B /* FirebaseStorageCombine-Community */; };
-		7C80BF982D0361B30033DD55 /* background_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C80BF972D0361B30033DD55 /* background_music.mp3 */; };
+		7C80BF9B2D067F630033DD55 /* background_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C80BF9A2D067F630033DD55 /* background_music.mp3 */; };
 		7C8DBDAC2CDC13330035B50A /* StoryCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DBDAB2CDC13330035B50A /* StoryCompletedView.swift */; };
 		7C8DBDB02CDD0A900035B50A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DBDAF2CDD0A900035B50A /* LoadingView.swift */; };
 /* End PBXBuildFile section */
@@ -126,10 +125,8 @@
 		1908EBDA2D024C48000DB274 /* UserModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelTest.swift; sourceTree = "<group>"; };
 		1908EBDD2D024E8E000DB274 /* StoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModelTests.swift; sourceTree = "<group>"; };
 		1908EBDF2D024FC6000DB274 /* AuthViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelTest.swift; sourceTree = "<group>"; };
-		1908EBE12D036BA7000DB274 /* background_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background_music.mp3; sourceTree = "<group>"; };
 		1908EBE32D03CCB0000DB274 /* UserDataViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewModelTest.swift; sourceTree = "<group>"; };
 		1908EBE62D03E0D9000DB274 /* StoryRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRepositoryTest.swift; sourceTree = "<group>"; };
-		1908EBE82D03E4DD000DB274 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		19EE7BD42CDC66360078A05B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		19EE7BD62CDC66630078A05B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		19EE7BD92CDC66E00078A05B /* CustomToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggle.swift; sourceTree = "<group>"; };
@@ -138,8 +135,8 @@
 		19EE7BDF2CDC67340078A05B /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		19EE7BE12CDC67440078A05B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		19EE7BE32CDC67D10078A05B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7C80BF972D0361B30033DD55 /* background_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = background_music.mp3; path = ../../../../../../background_music.mp3; sourceTree = "<group>"; };
 		7C80BF992D03D63F0033DD55 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7C80BF9A2D067F630033DD55 /* background_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background_music.mp3; sourceTree = "<group>"; };
 		7C8DBDAB2CDC13330035B50A /* StoryCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCompletedView.swift; sourceTree = "<group>"; };
 		7C8DBDAF2CDD0A900035B50A /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -284,9 +281,8 @@
 		0746DD782CD2EF7D00BB8F10 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				7C80BF972D0361B30033DD55 /* background_music.mp3 */,
+				7C80BF9A2D067F630033DD55 /* background_music.mp3 */,
 				0746DD732CD2E5F000BB8F10 /* SpeechRecognizer.swift */,
-				1908EBE12D036BA7000DB274 /* background_music.mp3 */,
 				0746DD792CD2EFA100BB8F10 /* PronunciationService.swift */,
 				0746DF1A2D035C0E00BB8F10 /* BackgroundMusic.swift */,
 			);
@@ -485,13 +481,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1908EBE22D036BA8000DB274 /* background_music.mp3 in Resources */,
 				0746DD432CD0365B00BB8F10 /* Preview Assets.xcassets in Resources */,
 				19EE7BE42CDC67D10078A05B /* GoogleService-Info.plist in Resources */,
 				1908EBCA2D011E19000DB274 /* 5.mov in Resources */,
 				1908EBCB2D011E19000DB274 /* 1.mov in Resources */,
 				0746DD402CD0365B00BB8F10 /* Assets.xcassets in Resources */,
-				7C80BF982D0361B30033DD55 /* background_music.mp3 in Resources */,
+				7C80BF9B2D067F630033DD55 /* background_music.mp3 in Resources */,
 				1908EBC92D011E19000DB274 /* 3.mov in Resources */,
 				1908EBC82D011E19000DB274 /* 6.mov in Resources */,
 				1908EBC72D011E19000DB274 /* 4.mov in Resources */,

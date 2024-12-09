@@ -5,7 +5,7 @@ struct NavigationBarView: View {
     var nickname: String
 
     var body: some View {
-        VStack(spacing: 30) {
+        VStack(spacing: 25) {
             // Navigation to Home
             NavigationLink(destination: StorySelectionView(nickname: nickname, email: email)) {
                 NavigationButton(iconName: "house.fill", label: "Home")
@@ -28,10 +28,7 @@ struct NavigationBarView: View {
         .background(
             Color(UIColor.secondarySystemBackground)
                 .cornerRadius(15)
-                .shadow(radius: 3)
-        )
-        .frame(maxHeight: .infinity, alignment: .center) // Vertically center the navigation
-        .padding(.trailing, 20)
+        ) 
     }
 }
 
@@ -55,3 +52,11 @@ struct NavigationButton: View {
 }
 
 
+struct NavigationBarView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            HStack {
+                NavigationBarView(email: "example@example.com", nickname: "John")             }
+        }
+    }
+}
