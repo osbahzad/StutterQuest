@@ -7,7 +7,15 @@
 
 ### API Limitations
 - **First API Call Issue**: When a user clicks on the first word marked as incorrect for pronunciation feedback, the **first call does not produce audio output**. However, subsequent calls function as expected.
-- **Word Recognition Gaps**: Some words may not exist in the API. Since the open API we are using is free, it may not cover certain word pronunciations comprehensively. This applies especially in regard to names, etc. 
+- **Word Recognition Gaps**: Some words may not exist in the API. Since the open API we are using is free, it may not cover certain word pronunciations comprehensively. This applies especially in regard to names, etc.
+
+### App-Specific Issues
+
+- **Pronunciation Feedback Colors Reset**: Sometimes, when closing the pronunciation feedback, the colors of the words reset to black instead of maintaining their feedback status.
+
+- **Incomplete Navigation Tabs**: Navigation tabs were not a primary focus during development. For example, the leaderboard button is non-functional at this stage.
+
+- **Mute Functionality Issue**: When muting from the main screen and then attempting to mute from the story pause overlay, users need to perform the action twice for the mute functionality to work properly.
 
 ### Items limiting 90% test Coverage
 
