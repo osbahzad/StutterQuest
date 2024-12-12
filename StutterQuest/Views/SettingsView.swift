@@ -41,8 +41,7 @@ struct SettingsView: View {
                     Text("Mute Background Music")
                         .font(.headline)
                 }
-                .toggleStyle(SwitchToggleStyle(tint: Color.blue))
-                .padding()
+                .toggleStyle(SwitchToggleStyle(tint: Color.blue)) 
 
                 Spacer()
             }
@@ -57,3 +56,4 @@ struct SettingsView: View {
         }
     }
 }
+

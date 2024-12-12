@@ -162,4 +162,4 @@ struct ContentView: View {
     return !UserDefaults.standard.bool(forKey: "HasSeenTutorial")
     //        return true
   }
-}
+} 
