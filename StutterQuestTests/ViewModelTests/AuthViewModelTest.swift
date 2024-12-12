@@ -40,7 +40,7 @@ final class AuthViewTest: XCTestCase {
 //    }
   
   func testSignUp() async throws {
-    let email = "test_auth@email.com"
+    let email = "test_auth111@email.com"
     let password = "password"
     await viewModel.signUp(email: email, password: password)
     
@@ -51,7 +51,7 @@ final class AuthViewTest: XCTestCase {
   }
   
   func testSignIn() async throws {
-    let email = "text_auth2@email.com"
+    let email = "text_auth20@email.com"
     let password = "password"
     await viewModel.signUp(email: email, password: password)
     try Auth.auth().signOut()
@@ -65,7 +65,7 @@ final class AuthViewTest: XCTestCase {
   }
   
   func testSaveNickname() async throws {
-    let email = "test_auth14@email.com"
+    let email = "test_auth140@email.com"
     let password = "password"
     await viewModel.signUp(email: email, password: password)
     let nickname = "test_nickname"
@@ -76,7 +76,7 @@ final class AuthViewTest: XCTestCase {
   }
   
   func testSignInFailure() async throws {
-    let email = "text_auth5@email.com"
+    let email = "text_auth50@email.com"
     let password = "password"
     await viewModel.signUp(email: email, password: password)
     try Auth.auth().signOut()
@@ -90,7 +90,7 @@ final class AuthViewTest: XCTestCase {
   
   func testLogout() async throws {
     
-    let email = "test_auth6@email.com"
+    let email = "test_auth60@email.com"
     let password = "password"
     await viewModel.signUp(email: email, password: password)
     await viewModel.logout(email: email)
@@ -103,7 +103,7 @@ final class AuthViewTest: XCTestCase {
 
   
   func testSaveLoginTime() async throws {
-    let email = "test_auth20@email.com"
+    let email = "test_auth200@email.com"
     let password = "password"
     await viewModel.signUp(email: email, password: password)
     await viewModel.save_login_time(uid: Auth.auth().currentUser!.uid)
@@ -112,7 +112,7 @@ final class AuthViewTest: XCTestCase {
   }
   
   func testFetchCompletedStories() async throws {
-    let email = "veronica55@email.com"
+    let email = "veronica550@email.com"
     let password = "password"
     await viewModel.signIn(email: email, password: password)
     let doc = try await Firestore.firestore().collection("user").whereField("email", isEqualTo: email).getDocuments()
@@ -123,7 +123,7 @@ final class AuthViewTest: XCTestCase {
   
   
   func testFindMostRecentLogin() async {
-    let email = "test123@email.com"
+    let email = "test1230@email.com"
     let password = "password"
     await viewModel.signUp(email: email, password: password)
     let sessionsRef = Firestore.firestore().collection("user").document(Auth.auth().currentUser!.uid).collection("sessions")
