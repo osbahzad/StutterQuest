@@ -28,9 +28,5 @@ final class StutterQuestTests: XCTestCase {
     XCTAssertEqual(story.storyName, "test name")
     XCTAssertEqual(story.storyPreviewImage, "image1")
   }
-  
-  func testRetrievalStoryDetails() throws {
-    
-  }
 
 }

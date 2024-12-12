@@ -37,7 +37,7 @@ class UserDataViewModelTest: XCTestCase {
   }
   
   func testFetchNumHoursRead() async {
-    let email = "new@email.com"
+    let email = "new1@email.com"
     let password = "password"
     await AuthViewModel().signUp(email: email, password: password)
     let numHours = await viewModel.fetch_num_hours_read(email: email)
@@ -47,14 +47,14 @@ class UserDataViewModelTest: XCTestCase {
   }
   
   func testFetchNumHoursReadFail() async {
-    let email = "newuser2"
+    let email = "newuser21"
     let numHours = await viewModel.fetch_num_hours_read(email: email)
     XCTAssertEqual(numHours, 0)
   }
   
   func testFetchNumDaysRead() async {
     do {
-      let email = "new3@email.com"
+      let email = "new312@email.com"
       let password = "password"
       await AuthViewModel().signUp(email: email, password: password)
       let numHours = await viewModel.fetch_num_hours_read(email: email)
@@ -74,7 +74,7 @@ class UserDataViewModelTest: XCTestCase {
   
   func testFetchNumBooksRead() async {
     do {
-      let email = "newuser5@email.com"
+      let email = "newuser512@email.com"
       let password = "password"
       await AuthViewModel().signUp(email: email, password: password)
       let numBooks = await viewModel.fetch_num_books_read(email: email)
@@ -92,7 +92,7 @@ class UserDataViewModelTest: XCTestCase {
   
   func testFetchNumBooksReadFail() async {
     
-    let email = "newuser6"
+    let email = "newuser612"
     let numBooks = await viewModel.fetch_num_books_read(email: email)
     XCTAssertEqual(numBooks, 0)
   }
@@ -132,7 +132,7 @@ class UserDataViewModelTest: XCTestCase {
   
   // used AI to generate
   func testUpdateHoursRead() async {
-    let email = "testuser6@email.com"
+    let email = "testuser612@email.com"
     let password = "password"
     await AuthViewModel().signUp(email: email, password: password)
     let sessionsRef = Firestore.firestore().collection("user").document(Auth.auth().currentUser!.uid).collection("sessions")
