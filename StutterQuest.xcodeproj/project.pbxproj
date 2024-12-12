@@ -63,10 +63,7 @@
 		19EE7C8D2CDD35340078A05B /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 19EE7C8C2CDD35340078A05B /* FirebaseFirestoreCombine-Community */; };
 		19EE7C8F2CDD35340078A05B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 19EE7C8E2CDD35340078A05B /* FirebaseStorage */; };
 		19EE7C912CDD35340078A05B /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 19EE7C902CDD35340078A05B /* FirebaseStorageCombine-Community */; };
-<<<<<<< HEAD
-=======
 		7C80BF9B2D067F630033DD55 /* background_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C80BF9A2D067F630033DD55 /* background_music.mp3 */; };
->>>>>>> 0b7ced10069ff64fd268b782b171104831507a42
 		7C8DBDAC2CDC13330035B50A /* StoryCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DBDAB2CDC13330035B50A /* StoryCompletedView.swift */; };
 		7C8DBDB02CDD0A900035B50A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DBDAF2CDD0A900035B50A /* LoadingView.swift */; };
 /* End PBXBuildFile section */
@@ -284,10 +281,7 @@
 		0746DD782CD2EF7D00BB8F10 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-=======
 				7C80BF9A2D067F630033DD55 /* background_music.mp3 */,
->>>>>>> 0b7ced10069ff64fd268b782b171104831507a42
 				0746DD732CD2E5F000BB8F10 /* SpeechRecognizer.swift */,
 				0746DD792CD2EFA100BB8F10 /* PronunciationService.swift */,
 				0746DF1A2D035C0E00BB8F10 /* BackgroundMusic.swift */,
@@ -492,10 +486,7 @@
 				1908EBCA2D011E19000DB274 /* 5.mov in Resources */,
 				1908EBCB2D011E19000DB274 /* 1.mov in Resources */,
 				0746DD402CD0365B00BB8F10 /* Assets.xcassets in Resources */,
-<<<<<<< HEAD
-=======
 				7C80BF9B2D067F630033DD55 /* background_music.mp3 in Resources */,
->>>>>>> 0b7ced10069ff64fd268b782b171104831507a42
 				1908EBC92D011E19000DB274 /* 3.mov in Resources */,
 				1908EBC82D011E19000DB274 /* 6.mov in Resources */,
 				1908EBC72D011E19000DB274 /* 4.mov in Resources */,
